@@ -148,7 +148,6 @@
             android:onClick="addToCart"
             android:text="@string/add_to_cart" />
 
-
     </RelativeLayout>
 
 </ScrollView>
