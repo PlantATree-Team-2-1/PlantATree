@@ -34,6 +34,9 @@ public class Login extends AppCompatActivity {
                 Boolean Chkemailpass = DATABASE.emailPassword(email, password);
                 if(Chkemailpass==true){
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
+
+                    /*SEND USER TO MAIN ACTIVITY ADD HERE*/
+                    
                 }else{
                     Toast.makeText(getApplicationContext(), "Wrong email or Passowrd", Toast.LENGTH_SHORT).show();
                 }
