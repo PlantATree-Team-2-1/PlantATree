@@ -1,4 +1,4 @@
-package com.stream53.plantatree.plantatree;
+package com.plantatree.plantatree;
 
 import android.database.Cursor;
 
@@ -18,5 +18,4 @@ public class tree {
         this.imageUrl = cursor.getString(cursor.getColumnIndex(treeContract.treeEntry.COLUMN_IMAGE));
         this.price = cursor.getDouble(cursor.getColumnIndex(treeContract.treeEntry.COLUMN_PRICE));
     }
-
 }
