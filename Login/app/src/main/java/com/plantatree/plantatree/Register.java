@@ -52,6 +52,10 @@ public class Register extends AppCompatActivity {
                             Boolean insert = DATABASE.addUser(s1,s2);
                             if(insert==true){
                                 Toast.makeText(getApplicationContext(), "Registered Successfully",Toast.LENGTH_SHORT).show();
+
+                                // redirecting to MainActivity.
+                                /*Intent intent = new Intent(Login.this,MainActivity.class);
+                                startActivity(intent);*/
                             }
                         }
                         else{
