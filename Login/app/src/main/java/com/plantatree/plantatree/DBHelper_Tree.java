@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -20,10 +19,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class treeDatabaseHelper extends SQLiteOpenHelper {
-    private static final String TAG = treeDatabaseHelper.class.getSimpleName();
+public class DBHelper_Tree extends SQLiteOpenHelper {
+    private static final String TAG = DBHelper_Tree.class.getSimpleName();
 
-    private static final String DATABASE_NAME = "tree.db";
+    private static final String DATABASE_NAME = "Catalogue_Tree.db";
     private static final int DATABASE_VERSION = 1;
     Context context;
     SQLiteDatabase db;
@@ -31,7 +30,7 @@ public class treeDatabaseHelper extends SQLiteOpenHelper {
 
     private Resources mResources;
 
-    public treeDatabaseHelper(Context context) {
+    public DBHelper_Tree(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         mResources = context.getResources();
@@ -42,11 +41,11 @@ public class treeDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        final String SQL_CREATE_TREE_TABLE = "CREATE TABLE " + treeContract.treeEntry.TABLE_NAME + " (" +
-                treeContract.treeEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                treeContract.treeEntry.COLUMN_NAME + " TEXT UNIQUE NOT NULL, " +
-                treeContract.treeEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
-                treeContract.treeEntry.COLUMN_IMAGE + " REAL NOT NULL " + " );";
+        final String SQL_CREATE_TREE_TABLE = "CREATE TABLE " + Catalogue_Contract.treeEntry.TABLE_NAME + " (" +
+                Catalogue_Contract.treeEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                Catalogue_Contract.treeEntry.COLUMN_NAME + " TEXT UNIQUE NOT NULL, " +
+                Catalogue_Contract.treeEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
+                Catalogue_Contract.treeEntry.COLUMN_IMAGE + " REAL NOT NULL " + " );";
 
 
 
@@ -67,7 +66,7 @@ public class treeDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + treeContract.treeEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Catalogue_Contract.treeEntry.TABLE_NAME);
         onCreate(db);
     }
 
@@ -84,7 +83,7 @@ public class treeDatabaseHelper extends SQLiteOpenHelper {
 
         final String rawJson = builder.toString();
 
-        final String BGS_TREE = "tree";
+        final String BGS_TREE = "Catalogue_Tree";
 
         final String BGS_TREE_NAME = "treeName";
         final String BGS_DESCRIPTION = "description";
@@ -113,12 +112,12 @@ public class treeDatabaseHelper extends SQLiteOpenHelper {
 
                 ContentValues treeValues = new ContentValues();
 
-                treeValues.put(treeContract.treeEntry.COLUMN_NAME, treeName);
-                treeValues.put(treeContract.treeEntry.COLUMN_DESCRIPTION, description);
-                treeValues.put(treeContract.treeEntry.COLUMN_IMAGE, imageUrl);
-                treeValues.put(treeContract.treeEntry.COLUMN_PRICE, price);
+                treeValues.put(Catalogue_Contract.treeEntry.COLUMN_NAME, treeName);
+                treeValues.put(Catalogue_Contract.treeEntry.COLUMN_DESCRIPTION, description);
+                treeValues.put(Catalogue_Contract.treeEntry.COLUMN_IMAGE, imageUrl);
+                treeValues.put(Catalogue_Contract.treeEntry.COLUMN_PRICE, price);
 
-                db.insert(treeContract.treeEntry.TABLE_NAME, null, treeValues);
+                db.insert(Catalogue_Contract.treeEntry.TABLE_NAME, null, treeValues);
 
                 Log.d(TAG, "Inserted Successfully " + treeValues );
             }

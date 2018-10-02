@@ -16,17 +16,17 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertNotNull;
 
-/*Tests the Register Button on the register activity
+/*Tests the Login_Register Button on the register activity
  * to see if the button is indeed, working properly*/
 
-public class RegisterTest {
+public class LoginRegisterTest {
 
     @Rule
-    public ActivityTestRule<Register> sActivityTestRule = new ActivityTestRule<Register>(Register.class);
+    public ActivityTestRule<Login_Register> sActivityTestRule = new ActivityTestRule<Login_Register>(Login_Register.class);
 
-    private Register sActivity = null;
+    private Login_Register sActivity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Register.class.getName(),null,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Login_Register.class.getName(),null,false);
 
     @Before
     public void setUp() throws Exception {

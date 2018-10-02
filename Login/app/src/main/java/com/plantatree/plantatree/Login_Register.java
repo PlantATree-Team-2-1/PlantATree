@@ -10,16 +10,16 @@ import android.widget.Toast;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class Register extends AppCompatActivity {
+public class Login_Register extends AppCompatActivity {
 
-    DatabaseHelper DATABASE;
+    DBHelper_Login DATABASE;
     EditText EMAIL, PASSWORD, CONFIRM_PASS;
     Button REGISTER, LOGIN_REG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        DATABASE = new DatabaseHelper(this);
+        DATABASE = new DBHelper_Login(this);
         EMAIL=(EditText)findViewById(R.id.edit_text_emailReg);
         PASSWORD =(EditText)findViewById(R.id.edit_text_regPass);
         CONFIRM_PASS =(EditText)findViewById(R.id.edit_text_confirm);
@@ -30,7 +30,7 @@ public class Register extends AppCompatActivity {
         LOGIN_REG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Register.this, Login.class);
+                Intent i = new Intent(Login_Register.this, Login_Login.class);
                 startActivity(i);
             }
         });
@@ -54,7 +54,7 @@ public class Register extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Registered Successfully",Toast.LENGTH_SHORT).show();
 
                                 // redirecting to MainActivity.
-                                /*Intent intent = new Intent(Login.this,MainActivity.class);
+                                /*Intent intent = new Intent(Login_Login.this,MainActivity.class);
                                 startActivity(intent);*/
                             }
                         }

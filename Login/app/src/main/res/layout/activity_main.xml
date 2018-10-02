@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.plantatree.plantatree.MainActivity">
+    tools:context="com.plantatree.plantatree.Catalogue_Main">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

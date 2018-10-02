@@ -11,9 +11,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-public class treeProvider extends ContentProvider {
+public class Catalogue_Provider extends ContentProvider {
 
-    public static final String LOG_TAG = treeProvider.class.getSimpleName();
+    public static final String LOG_TAG = Catalogue_Provider.class.getSimpleName();
 
     private static final int TREES = 100;
 
@@ -23,17 +23,17 @@ public class treeProvider extends ContentProvider {
 
     static {
 
-        sUriMatcher.addURI(treeContract.CONTENT_AUTHORITY, treeContract.PATH_TREE, TREES);
+        sUriMatcher.addURI(Catalogue_Contract.CONTENT_AUTHORITY, Catalogue_Contract.PATH_TREE, TREES);
 
-        sUriMatcher.addURI(treeContract.CONTENT_AUTHORITY, treeContract.PATH_TREE + "/#", TREE_ID);
+        sUriMatcher.addURI(Catalogue_Contract.CONTENT_AUTHORITY, Catalogue_Contract.PATH_TREE + "/#", TREE_ID);
 
     }
 
-    private treeDatabaseHelper treeDatabaseHelper;
+    private DBHelper_Tree DBHelper_Tree;
 
     @Override
     public boolean onCreate() {
-        treeDatabaseHelper = new treeDatabaseHelper(getContext());
+        DBHelper_Tree = new DBHelper_Tree(getContext());
         return true;
     }
 
@@ -41,7 +41,7 @@ public class treeProvider extends ContentProvider {
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
 
-        SQLiteDatabase database = treeDatabaseHelper.getReadableDatabase();
+        SQLiteDatabase database = DBHelper_Tree.getReadableDatabase();
 
         Cursor cursor;
 
@@ -49,16 +49,16 @@ public class treeProvider extends ContentProvider {
         switch (match) {
             case TREES:
 
-                cursor = database.query(treeContract.treeEntry.TABLE_NAME, projection, selection, selectionArgs,
+                cursor = database.query(Catalogue_Contract.treeEntry.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
 
             case TREE_ID:
 
-                selection = treeContract.treeEntry._ID + "=?";
+                selection = Catalogue_Contract.treeEntry._ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
 
-                cursor = database.query(treeContract.treeEntry.TABLE_NAME, projection, selection, selectionArgs,
+                cursor = database.query(Catalogue_Contract.treeEntry.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
             default:
@@ -91,10 +91,10 @@ public class treeProvider extends ContentProvider {
 
     private Uri insertCart(Uri uri, ContentValues values) {
 
-        SQLiteDatabase database = treeDatabaseHelper.getWritableDatabase();
+        SQLiteDatabase database = DBHelper_Tree.getWritableDatabase();
 
         // Insert the new cart with the given values
-        long id = database.insert(treeContract.treeEntry.CART_TABLE, null, values);
+        long id = database.insert(Catalogue_Contract.treeEntry.CART_TABLE, null, values);
         // If the ID is -1, then the insertion failed. Log an error and return null.
         if (id == -1) {
             Log.e(LOG_TAG, "Failed to insert row for " + uri);
@@ -111,7 +111,7 @@ public class treeProvider extends ContentProvider {
     @Override
     public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
         // Get access to the database and write URI matching code to recognize a single item
-        final SQLiteDatabase db = treeDatabaseHelper.getWritableDatabase();
+        final SQLiteDatabase db = DBHelper_Tree.getWritableDatabase();
 
         int match = sUriMatcher.match(uri);
         // Keep track of the number of deleted tasks
