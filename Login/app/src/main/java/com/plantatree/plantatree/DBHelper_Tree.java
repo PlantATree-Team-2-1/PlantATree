@@ -47,11 +47,8 @@ public class DBHelper_Tree extends SQLiteOpenHelper {
                 Catalogue_Contract.treeEntry.COLUMN_DESCRIPTION + " TEXT NOT NULL, " +
                 Catalogue_Contract.treeEntry.COLUMN_IMAGE + " REAL NOT NULL " + " );";
 
-
-
         db.execSQL(SQL_CREATE_TREE_TABLE);
         Log.d(TAG, "Database Created Successfully" );
-
 
         try {
             readtreesFromResources(db);
@@ -60,8 +57,6 @@ public class DBHelper_Tree extends SQLiteOpenHelper {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
