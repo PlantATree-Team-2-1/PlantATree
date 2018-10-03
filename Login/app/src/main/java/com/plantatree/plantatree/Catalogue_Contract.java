@@ -4,14 +4,14 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-public class treeContract {
+public class Catalogue_Contract {
 
-    private treeContract() {
+    private Catalogue_Contract() {
     }
 
     public static final String CONTENT_AUTHORITY = "com.delaroystudios.treecart";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-    public static final String PATH_TREE = "tree-path";
+    public static final String PATH_TREE = "Catalogue_Tree-path";
     public static final String PATH_CART = "cart-path";
 
     public static final class treeEntry implements BaseColumns {

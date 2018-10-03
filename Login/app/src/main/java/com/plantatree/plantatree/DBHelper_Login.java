@@ -7,12 +7,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DBHelper_Login extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "Login.db";
+    private static final String DATABASE_NAME = "PlantATree_Login.db";
     private static final int DATABASE_VERSION = 1;
 
-    public DatabaseHelper(Context context) {
+    public DBHelper_Login(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

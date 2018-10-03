@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stream53.plantatree.plantatree">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,14 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.plantatree.plantatree.Register">
+        <activity android:name="com.plantatree.plantatree.Login_Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.plantatree.plantatree.Login"></activity>
+
+        <activity android:name="com.plantatree.plantatree.Catalogue_Main"/>
+        <activity android:name="com.plantatree.plantatree.Login_Login"/>
+        <activity android:name="com.plantatree.plantatree.Quiz_Start"/>
+        <activity android:name="com.plantatree.plantatree.Quiz_Activity"/>
 
     </application>
 

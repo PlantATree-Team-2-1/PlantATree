@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.plantatree.plantatree.Login_Login">
+    android:background="@color/colorBackground"
+    android:padding="16dp"
+    tools:context="com.plantatree.plantatree.Quiz_Activity">
 
-    <EditText
-        android:id="@+id/edit_text_emailLogin"
+    <TextView
+        android:id="@+id/text_view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="159dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        android:text="Email" />
+        android:layout_marginTop="48dp"
+        android:text="Plant A Tree"
+        android:textColor="@android:color/black"
+        android:textSize="35sp" />
 
-    <EditText
-        android:id="@+id/edit_text_loginPass"
+    <TextView
+        android:id="@+id/text_view_highscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="221dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        android:text="Password" />
+        android:layout_marginTop="212dp"
+        android:text="Highscore: 0"
+        android:textSize="20sp" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_start_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="129dp"
-        android:text="Login" />
+        android:layout_marginBottom="187dp"
+        android:background="@android:color/white"
+        android:text="Start Quiz" />
 
 </RelativeLayout>

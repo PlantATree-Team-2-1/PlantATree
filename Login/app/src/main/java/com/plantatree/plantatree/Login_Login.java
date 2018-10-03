@@ -1,5 +1,6 @@
 package com.plantatree.plantatree;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,18 +10,18 @@ import android.widget.Toast;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class Login extends AppCompatActivity {
+public class Login_Login extends AppCompatActivity {
 
     EditText EMAIL_LOGIN, PASS_LOGIN;
     Button LOGIN;
-    DatabaseHelper DATABASE;
+    DBHelper_Login DATABASE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        DATABASE = new DatabaseHelper(this);
+        DATABASE = new DBHelper_Login(this);
         EMAIL_LOGIN = (EditText)findViewById(R.id.edit_text_emailLogin);
         PASS_LOGIN = (EditText)findViewById(R.id.edit_text_loginPass);
         LOGIN = (Button)findViewById(R.id.button_login);
@@ -32,15 +33,22 @@ public class Login extends AppCompatActivity {
                 String email = EMAIL_LOGIN.getText().toString();
                 String password = PASS_LOGIN.getText().toString();
                 Boolean Chkemailpass = DATABASE.emailPassword(email, password);
-                if(Chkemailpass==true){
-                    Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
 
-                    /*SEND USER TO MAIN ACTIVITY ADD HERE*/
-                    
+                if(Chkemailpass==true){
+
+                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                    redirect();
+
                 }else{
-                    Toast.makeText(getApplicationContext(), "Wrong email or Passowrd", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Wrong  Email or Passowrd", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    public void redirect(){
+
+        Intent intent = new Intent(this, Catalogue_Main.class);
+        startActivity(intent);
     }
 }
