@@ -14,17 +14,13 @@ import android.util.Log;
 public class Catalogue_Provider extends ContentProvider {
 
     public static final String LOG_TAG = Catalogue_Provider.class.getSimpleName();
-
     private static final int TREES = 100;
-
     private static final int TREE_ID = 101;
-
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
 
         sUriMatcher.addURI(Catalogue_Contract.CONTENT_AUTHORITY, Catalogue_Contract.PATH_TREE, TREES);
-
         sUriMatcher.addURI(Catalogue_Contract.CONTENT_AUTHORITY, Catalogue_Contract.PATH_TREE + "/#", TREE_ID);
 
     }

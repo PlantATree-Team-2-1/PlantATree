@@ -84,6 +84,7 @@ public class Quiz_Start extends AppCompatActivity {
     }
 
     public void startQuiz(){
+        //redirects the start activity to the quiz.
         Intent intent = new Intent(Quiz_Start.this, Quiz_Activity.class);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
     }
@@ -91,6 +92,8 @@ public class Quiz_Start extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        //updates high score, if the current quiz score is greater than the highscore
 
         if(requestCode == REQUEST_CODE_QUIZ){
             if(resultCode == RESULT_OK){
@@ -103,12 +106,20 @@ public class Quiz_Start extends AppCompatActivity {
     }
 
     private void loadHighScore(){
+
+        //displays highest score on create when called upon.
         SharedPreferences prefs = getSharedPreferences(SHARE_PREFS, MODE_PRIVATE);
         highScore = prefs.getInt(KEY_HIGHSCORE, 0);
         textViewHighScore.setText("Highscore: " + highScore);
     }
 
     private void updateHighScore(int highScoreNew){
+
+        /*
+        Applies current score to high score and stores in database
+        giving the ability for the user, to save their score, which
+        can be displayed even if the app has been closed.
+         */
         highScore = highScoreNew;
         textViewHighScore.setText("Highscore: " + highScore);
 
