@@ -10,7 +10,7 @@
     <item android:title="Quiz"
         android:id="@+id/menu_Quiz"/>
 
-    <item android:title="About"
-        android:id="@+id/menu_About"/>
+    <item android:title="Compare"
+        android:id="@+id/menu_Compare"/>
 
 </menu>

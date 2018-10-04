@@ -4,6 +4,8 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
+import java.net.URI;
+
 public class Catalogue_Contract {
 
     private Catalogue_Contract() {
@@ -18,15 +20,16 @@ public class Catalogue_Contract {
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TREE);
         public static final Uri CONTENT_URI_CART = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_CART);
-        public static final String CONTENT_LIST_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TREE;
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TREE;
-
+        public static final String CONTENT_LIST_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TREE;
+        public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TREE;
         public final static String _ID = BaseColumns._ID;
         public final static String _CARTID = BaseColumns._ID;
 
-        public final static String TABLE_NAME = "fragrances";
+        /*
+        Tree Database Names
+         */
+
+        public final static String TABLE_NAME = "trees";
         public final static String CART_TABLE = "cart";
         public final static String COLUMN_NAME = "treename";
         public final static String COLUMN_DESCRIPTION = "description";

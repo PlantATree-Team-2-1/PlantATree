@@ -21,7 +21,11 @@
         <activity android:name="com.plantatree.plantatree.Login_Login"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Start"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Activity"/>
+<<<<<<< HEAD
         <activity android:name="com.plantatree.plantatree."/>
+=======
+        <activity android:name="com.plantatree.plantatree.Image_Drag"/>
+>>>>>>> 003bb95ac6123de59a29a64516eccc809b71bde3
 
     </application>
 

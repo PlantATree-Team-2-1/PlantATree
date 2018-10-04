@@ -30,6 +30,7 @@ import com.stream53.plantatree.plantatree.R;
 
 import java.security.KeyStore;
 
+<<<<<<< HEAD
 public class Catalogue_Main extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
@@ -106,6 +107,14 @@ public class Catalogue_Main extends AppCompatActivity implements LoaderManager.L
             Tree_adapter.swapCursor(null);
 
         }
+=======
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_catalogue);
+
+    }
+>>>>>>> 003bb95ac6123de59a29a64516eccc809b71bde3
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -138,12 +147,12 @@ public class Catalogue_Main extends AppCompatActivity implements LoaderManager.L
             startActivity(startTopic1);
 
         }
-        /*if(id == R.id.menu_About){
+        if(id == R.id.menu_Compare){
 
-            Intent startTopic1 = new Intent (this, Topic1.class);
+            Intent startTopic1 = new Intent (this, Image_Drag.class);
             startActivity(startTopic1);
 
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }
