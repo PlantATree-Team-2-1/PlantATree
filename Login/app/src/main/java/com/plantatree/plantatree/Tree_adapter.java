@@ -59,7 +59,7 @@ public class Tree_adapter extends RecyclerView.Adapter<Tree_adapter.ViewHolder> 
     @Override
     public Tree_adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View cardview = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_views, parent, false);
+                .inflate(R.layout.activity_catalogue, parent, false);
         return new ViewHolder(cardview);
     }
 
@@ -74,10 +74,6 @@ public class Tree_adapter extends RecyclerView.Adapter<Tree_adapter.ViewHolder> 
         String mDescription = dataCursor.getString(dataCursor.getColumnIndex(Catalogue_Contract.treeEntry.COLUMN_DESCRIPTION));
         String mImageUrl = dataCursor.getString(dataCursor.getColumnIndex(Catalogue_Contract.treeEntry.COLUMN_IMAGE));
         int mPrice = dataCursor.getInt(dataCursor.getColumnIndex(Catalogue_Contract.treeEntry.COLUMN_PRICE));
-
-
-
-
 
     }
 

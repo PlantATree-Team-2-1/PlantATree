@@ -47,9 +47,6 @@ public class Tree_detail extends AppCompatActivity {
     private int mNotificationsCount = 0;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -84,8 +81,6 @@ public class Tree_detail extends AppCompatActivity {
             float f = Float.parseFloat(Double.toString(rating));
 
             setTitle(treeName);
-
-
         }
 
 
@@ -127,16 +122,4 @@ public class Tree_detail extends AppCompatActivity {
         String convertPrice = NumberFormat.getCurrencyInstance().format(totalPrice);
         costTextView.setText(convertPrice);
     }
-
-
-    private void updateNotificationsBadge(int count) {
-        mNotificationsCount = count;
-
-        // force the ActionBar to relayout its MenuItems.
-        // onCreateOptionsMenu(Menu) will be called again.
-        invalidateOptionsMenu();
-    }
-
-
-
 }

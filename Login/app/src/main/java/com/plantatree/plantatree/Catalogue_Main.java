@@ -30,7 +30,7 @@ import com.stream53.plantatree.plantatree.R;
 
 import java.security.KeyStore;
 
-<<<<<<< HEAD
+
 public class Catalogue_Main extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
@@ -46,7 +46,7 @@ public class Catalogue_Main extends AppCompatActivity implements LoaderManager.L
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_catalogue);
             DBHelper_Tree dbHelper = new DBHelper_Tree(this);
             mDb = dbHelper.getWritableDatabase();
 
@@ -66,14 +66,6 @@ public class Catalogue_Main extends AppCompatActivity implements LoaderManager.L
 
         }
 
-
-        private void updateNotificationsBadge(int count) {
-            mNotificationsCount = count;
-
-            // force the ActionBar to relayout its MenuItems.
-            // onCreateOptionsMenu(Menu) will be called again.
-            invalidateOptionsMenu();
-        }
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             // Define a projection that specifies the columns from the table we care about.
@@ -107,14 +99,6 @@ public class Catalogue_Main extends AppCompatActivity implements LoaderManager.L
             Tree_adapter.swapCursor(null);
 
         }
-=======
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogue);
-
-    }
->>>>>>> 003bb95ac6123de59a29a64516eccc809b71bde3
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
