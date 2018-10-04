@@ -21,6 +21,7 @@
         <activity android:name="com.plantatree.plantatree.Login_Login"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Start"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Activity"/>
+        <activity android:name="com.plantatree.plantatree."/>
 
     </application>
 
