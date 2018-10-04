@@ -32,8 +32,6 @@ public class Tree_detail extends AppCompatActivity {
     public static final String  TREE_PRICE = "treePrice";
 
     private ImageView mImage;
-
-
     String treeName, description, treeImage;
     int rating;
     Double price;
@@ -57,7 +55,6 @@ public class Tree_detail extends AppCompatActivity {
         mContentResolver = this.getContentResolver();
         DBHelper_Tree dbHelper = new DBHelper_Tree(this);
         mDb = dbHelper.getWritableDatabase();
-
 
         mImage = (ImageView) findViewById(R.id.treeImage);
         Intent intentThatStartedThisActivity = getIntent();

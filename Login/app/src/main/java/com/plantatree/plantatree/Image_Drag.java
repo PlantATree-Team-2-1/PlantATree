@@ -17,25 +17,26 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Image_Drag extends Activity {
 
-    private ImageView img;
-    private ViewGroup rootLayout;
-    private int _xDelta;
-    private int _yDelta;
+    private int xCord;
+    private int yCord;
+    private ImageView image;
+    private ViewGroup dragLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_drag);
 
-        rootLayout = (ViewGroup) findViewById(R.id.view_root);
-        img = (ImageView) rootLayout.findViewById(R.id.imageView);
+        dragLayout = (ViewGroup) findViewById(R.id.view_root);
+        image = (ImageView) dragLayout.findViewById(R.id.imageView);
 
+        //provides the images parameters, having a width 150 and height of 150
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
-        img.setLayoutParams(layoutParams);
-        img.setOnTouchListener(new ChoiceTouchListener());
+        image.setLayoutParams(layoutParams);
+        image.setOnTouchListener(new DragNDropListener());
     }
 
-    private final class ChoiceTouchListener implements OnTouchListener {
+    private final class DragNDropListener implements OnTouchListener {
 
         public boolean onTouch(View view, MotionEvent event) {
 
@@ -47,8 +48,8 @@ public class Image_Drag extends Activity {
 
                 case MotionEvent.ACTION_DOWN:
                     RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                    _xDelta = X - lParams.leftMargin;
-                    _yDelta = Y - lParams.topMargin;
+                    xCord = X - lParams.leftMargin;
+                    yCord = Y - lParams.topMargin;
                     break;
                 case MotionEvent.ACTION_UP:
                     break;
@@ -59,14 +60,14 @@ public class Image_Drag extends Activity {
                 case MotionEvent.ACTION_MOVE:
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view
                             .getLayoutParams();
-                    layoutParams.leftMargin = X - _xDelta;
-                    layoutParams.topMargin = Y - _yDelta;
-                    layoutParams.rightMargin = -500;
-                    layoutParams.bottomMargin = -500;
+                    layoutParams.leftMargin = X - xCord;
+                    layoutParams.topMargin = Y - yCord;
+                    layoutParams.rightMargin = -250;
+                    layoutParams.bottomMargin = -250;
                     view.setLayoutParams(layoutParams);
                     break;
             }
-            rootLayout.invalidate();
+            dragLayout.invalidate();
             return true;
         }
     }
