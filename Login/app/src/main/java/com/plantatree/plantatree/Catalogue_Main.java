@@ -15,6 +15,7 @@ public class Catalogue_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
+
     }
 
     @Override
@@ -48,12 +49,12 @@ public class Catalogue_Main extends AppCompatActivity {
             startActivity(startTopic1);
 
         }
-        /*if(id == R.id.menu_About){
+        if(id == R.id.menu_Compare){
 
-            Intent startTopic1 = new Intent (this, Topic1.class);
+            Intent startTopic1 = new Intent (this, Image_Drag.class);
             startActivity(startTopic1);
 
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }

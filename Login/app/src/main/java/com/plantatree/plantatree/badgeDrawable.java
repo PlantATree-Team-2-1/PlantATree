@@ -24,6 +24,7 @@ public class badgeDrawable extends Drawable {
     private boolean mWillDraw = false;
 
     public badgeDrawable(Context context) {
+
         mTextSize = context.getResources().getDimension(R.dimen.badge_text_size);
 
         mBadgePaint = new Paint();
