@@ -22,7 +22,12 @@
         <activity android:name="com.plantatree.plantatree.Quiz_Start"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Activity"/>
         <activity android:name="com.plantatree.plantatree.Image_Drag"/>
-
+        <activity android:name="com.plantatree.plantatree.Tree_detail"
+            android:parentActivityName="com.plantatree.plantatree.Catalogue_Main">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.plantatree.plantatree.Catalogue_Main" />
+        </activity>
 
     </application>
 
