@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-=======
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
->>>>>>> 2a7dbaf2656676e1afae57ae2988aa64d8e488c1
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 

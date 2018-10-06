@@ -66,12 +66,12 @@ public class Quiz_Activity extends AppCompatActivity {
             startActivity(startTopic1);
 
         }
-        /*if(id == R.id.menu_Cart){
+        if(id == R.id.menu_Cart){
 
-            Intent startTopic1 = new Intent (this, Topic1.class);
+            Intent startTopic1 = new Intent (this, ShoppingCartActivity.class);
             startActivity(startTopic1);
 
-        }*/
+        }
         if(id == R.id.menu_Quiz){
 
             Intent startTopic1 = new Intent (this, Quiz_Start.class);
