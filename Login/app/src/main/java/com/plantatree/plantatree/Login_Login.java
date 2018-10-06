@@ -48,7 +48,7 @@ public class Login_Login extends AppCompatActivity {
 
     public void redirect(){
 
-        Intent intent = new Intent(this, Catalogue_Main.class);
+        Intent intent = new Intent(this, CatalogActivity.class);
         startActivity(intent);
     }
 }

@@ -1,8 +1,8 @@
 package com.plantatree.plantatree;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class Image_Drag extends Activity {
+public class Image_Drag extends AppCompatActivity {
 
     private int xCord;
     private int yCord;
@@ -62,8 +62,8 @@ public class Image_Drag extends Activity {
                             .getLayoutParams();
                     layoutParams.leftMargin = X - xCord;
                     layoutParams.topMargin = Y - yCord;
-                    layoutParams.rightMargin = -250;
-                    layoutParams.bottomMargin = -250;
+                    layoutParams.rightMargin = -150;
+                    layoutParams.bottomMargin = -150;
                     view.setLayoutParams(layoutParams);
                     break;
             }
@@ -87,16 +87,16 @@ public class Image_Drag extends Activity {
 
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, Catalogue_Main.class);
+            Intent startTopic1 = new Intent (this, CatalogActivity.class);
             startActivity(startTopic1);
 
         }
-        /*if(id == R.id.menu_Cart){
+        if(id == R.id.menu_Cart){
 
-            Intent startTopic1 = new Intent (this, Topic1.class);
+            Intent startTopic1 = new Intent (this, ShoppingCartActivity.class);
             startActivity(startTopic1);
 
-        }*/
+        }
         if(id == R.id.menu_Quiz){
 
             Intent startTopic1 = new Intent (this, Quiz_Start.class);
