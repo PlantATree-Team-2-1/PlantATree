@@ -160,7 +160,7 @@ public class Quiz_Activity extends AppCompatActivity {
             rb3.setText(currentQuizQuestion.getOption3());
 
             questionCounter++;
-            textViewQuestionCount.setText("Quiz_Returns: " + questionCounter + "/" + questionCountTotal);
+            textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionCountTotal);
             answered = false;
             buttonConfirmNext.setText("Confirm");
 

@@ -77,14 +77,7 @@ public class Catalog_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_catalogue);
 
         //References an object from the product catalog
-        PRODUCT_LIST = Shopping_Details.getCatalog(getResources());
-
-
-
-
-
-
-
+        PRODUCT_LIST = ShoppingCartHelper.getCatalog(getResources());
 
         // Create the list
         ListView listViewCatalog = (ListView) findViewById(R.id.ListViewCatalog);
@@ -100,7 +93,7 @@ public class Catalog_Activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 Intent productDetailsIntent = new Intent(getBaseContext(),Catalogue_Details.class);
-                productDetailsIntent.putExtra(Shopping_Details.PRODUCT_INDEX, position);
+                productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
                 startActivity(productDetailsIntent);
             }
         });

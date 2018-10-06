@@ -1,6 +1,5 @@
 package com.plantatree.plantatree;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,12 +9,12 @@ import android.content.res.Resources;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class Shopping_Details {
+public class ShoppingCartHelper {
 
     public static final String PRODUCT_INDEX = "PRODUCT_INDEX";
 
     private static List<Catalog_Product> catalog;
-    private static Map<Catalog_Product, Shopping_Returns> cartMap = new HashMap<Catalog_Product, Shopping_Returns>();
+    private static Map<Catalog_Product, ShoppingCartEntry> cartMap = new HashMap<Catalog_Product, ShoppingCartEntry>();
 
     public static List<Catalog_Product> getCatalog(Resources res){
 
@@ -42,7 +41,6 @@ public class Shopping_Details {
             catalog.add(new Catalog_Product("Spade", res
                     .getDrawable(R.drawable.spade),
                     "A tool with a sharp-edged, typically rectangular, metal blade and a long handle, used for digging or cutting earth, sand, turf, etc.", 24.99));
-
         }
 
         return catalog;
@@ -50,7 +48,7 @@ public class Shopping_Details {
 
     public static void setQuantity(Catalog_Product catalogProduct, int quantity) {
         // Get the current cart entry
-        Shopping_Returns curEntry = cartMap.get(catalogProduct);
+        ShoppingCartEntry curEntry = cartMap.get(catalogProduct);
 
         // If the quantity is zero or less, remove the products
         if(quantity <= 0) {
@@ -61,7 +59,7 @@ public class Shopping_Details {
 
         // If a current cart entry doesn't exist, create one
         if(curEntry == null) {
-            curEntry = new Shopping_Returns(catalogProduct, quantity);
+            curEntry = new ShoppingCartEntry(catalogProduct, quantity);
             cartMap.put(catalogProduct, curEntry);
             return;
         }
@@ -72,7 +70,7 @@ public class Shopping_Details {
 
     public static int getProductQuantity(Catalog_Product catalogProduct) {
         // Get the current cart entry
-        Shopping_Returns curEntry = cartMap.get(catalogProduct);
+        ShoppingCartEntry curEntry = cartMap.get(catalogProduct);
 
         if(curEntry != null)
             return curEntry.getQuantity();

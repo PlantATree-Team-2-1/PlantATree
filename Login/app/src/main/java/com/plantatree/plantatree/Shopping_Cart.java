@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 import com.stream53.plantatree.plantatree.R;
 
@@ -33,27 +34,27 @@ public class Shopping_Cart extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if(id == R.id.menu_Catalogue){
+        if (id == R.id.menu_Catalogue) {
 
-            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent(this, Catalog_Activity.class);
             startActivity(startTopic1);
 
         }
-        if(id == R.id.menu_Cart){
+        if (id == R.id.menu_Cart) {
 
-            Intent startTopic1 = new Intent (this, Shopping_Cart.class);
+            Intent startTopic1 = new Intent(this, Shopping_Cart.class);
             startActivity(startTopic1);
 
         }
-        if(id == R.id.menu_Quiz){
+        if (id == R.id.menu_Quiz) {
 
-            Intent startTopic1 = new Intent (this, Quiz_Start.class);
+            Intent startTopic1 = new Intent(this, Quiz_Start.class);
             startActivity(startTopic1);
 
         }
-        if(id == R.id.menu_Compare){
+        if (id == R.id.menu_Compare) {
 
-            Intent startTopic1 = new Intent (this, Image_Drag.class);
+            Intent startTopic1 = new Intent(this, Image_Drag.class);
             startActivity(startTopic1);
 
         }
@@ -67,10 +68,10 @@ public class Shopping_Cart extends AppCompatActivity {
         setContentView(R.layout.shopping_cart);
 
 
-        mCartList = Shopping_Details.getCartList();
+        mCartList = ShoppingCartHelper.getCartList();
 
         // Make sure to clear the selections
-        for(int i=0; i<mCartList.size(); i++) {
+        for (int i = 0; i < mCartList.size(); i++) {
             mCartList.get(i).selected = false;
         }
 
@@ -84,8 +85,8 @@ public class Shopping_Cart extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent productDetailsIntent = new Intent(getBaseContext(),Catalogue_Details.class);
-                productDetailsIntent.putExtra(Shopping_Details.PRODUCT_INDEX, position);
+                Intent productDetailsIntent = new Intent(getBaseContext(), Catalogue_Details.class);
+                productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
                 startActivity(productDetailsIntent);
             }
         });
@@ -97,9 +98,19 @@ public class Shopping_Cart extends AppCompatActivity {
         super.onResume();
 
         // Refresh the data
-        if(mProductAdapter != null) {
+        if (mProductAdapter != null) {
             mProductAdapter.notifyDataSetChanged();
         }
+
+        double subTotal = 0;
+
+        for (Catalog_Product p : mCartList) {
+            int quantity = ShoppingCartHelper.getProductQuantity(p);
+            subTotal += p.price * quantity;
+        }
+
+        TextView productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
+        productPriceTextView.setText("Subtotal: $" + subTotal);
     }
 }
 

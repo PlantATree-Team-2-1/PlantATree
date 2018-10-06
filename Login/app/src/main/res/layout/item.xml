@@ -3,6 +3,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_width="fill_parent"
+    android:background="@color/colorBackground"
     android:id="@+id/LinearLayoutItem">
 
     <LinearLayout
@@ -25,7 +26,7 @@
             android:layout_margin="5dip"
             android:id="@+id/TextViewItem"
             android:textSize="26dip"
-            android:text="Book Title"
+            android:text="Tree Title"
             android:textColor="#000000"
             android:minLines="2"
             android:maxWidth="150dip">

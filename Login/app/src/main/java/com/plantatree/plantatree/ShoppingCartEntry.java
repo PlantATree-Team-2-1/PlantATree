@@ -1,11 +1,11 @@
 package com.plantatree.plantatree;
 
-public class Shopping_Returns {
+public class ShoppingCartEntry {
 
     private Catalog_Product mCatalogProduct;
     private int mQuantity;
 
-    public Shopping_Returns(Catalog_Product catalogProduct, int quantity) {
+    public ShoppingCartEntry(Catalog_Product catalogProduct, int quantity) {
         mCatalogProduct = catalogProduct;
         mQuantity = quantity;
     }

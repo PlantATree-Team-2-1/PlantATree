@@ -1,5 +1,6 @@
 package com.plantatree.plantatree;
 
+
 import android.graphics.drawable.Drawable;
 
 public class Catalog_Product {
@@ -10,12 +11,13 @@ public class Catalog_Product {
     public double price;
     public boolean selected;
 
-    public Catalog_Product(String title, Drawable productImage, String description, double price) {
-
+    public Catalog_Product(String title, Drawable productImage, String description,
+                   double price) {
         this.title = title;
         this.productImage = productImage;
         this.description = description;
         this.price = price;
     }
+
 }
 
