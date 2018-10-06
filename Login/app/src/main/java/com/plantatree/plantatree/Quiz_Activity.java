@@ -39,8 +39,8 @@ public class Quiz_Activity extends AppCompatActivity {
     private ColorStateList textColorDefaultRb;
     private ColorStateList textColorDefaultCd;
     private CountDownTimer countDownTimer;
-    private Quiz_Question currentQuizQuestion;
-    private List<Quiz_Question> quizQuestionList;
+    private Quiz_Returns currentQuizQuestion;
+    private List<Quiz_Returns> quizQuestionList;
     private int score;
     private int questionCounter;
     private int questionCountTotal;
@@ -160,7 +160,7 @@ public class Quiz_Activity extends AppCompatActivity {
             rb3.setText(currentQuizQuestion.getOption3());
 
             questionCounter++;
-            textViewQuestionCount.setText("Quiz_Question: " + questionCounter + "/" + questionCountTotal);
+            textViewQuestionCount.setText("Quiz_Returns: " + questionCounter + "/" + questionCountTotal);
             answered = false;
             buttonConfirmNext.setText("Confirm");
 

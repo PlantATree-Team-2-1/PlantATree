@@ -1,6 +1,6 @@
 package com.plantatree.plantatree;
 
-public class Quiz_Question {
+public class Quiz_Returns {
 
     public String question;
     public String choice1;
@@ -8,9 +8,9 @@ public class Quiz_Question {
     public String choice3;
     public int correctAnswer;
 
-    public Quiz_Question() {}
+    public Quiz_Returns() {}
 
-    public Quiz_Question(String question, String choice1, String choice2, String choice3, int correctAnswer) {
+    public Quiz_Returns(String question, String choice1, String choice2, String choice3, int correctAnswer) {
         this.question = question;
         this.choice1 = choice1;
         this.choice2 = choice2;

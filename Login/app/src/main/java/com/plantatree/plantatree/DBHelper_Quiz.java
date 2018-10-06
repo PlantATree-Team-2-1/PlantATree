@@ -47,48 +47,48 @@ public class DBHelper_Quiz extends SQLiteOpenHelper {
 
     public void fillQuestionsTable() {
 
-        Quiz_Question q1 = new Quiz_Question("Trees may help reduce the effects of global warming by:",
+        Quiz_Returns q1 = new Quiz_Returns("Trees may help reduce the effects of global warming by:",
                 "Reduce CO2 in the atmosphere", "Provide shade from UV rays", "Increase oxygen in atmosphere", 1);
         addQuestion(q1);
 
-        Quiz_Question q2 = new Quiz_Question("What two main substances do trees need to live?",
+        Quiz_Returns q2 = new Quiz_Returns("What two main substances do trees need to live?",
                 "They absorb CO2 and H2O", "Trees absorb oxygen", "Trees only need sunlight", 1);
         addQuestion(q2);
 
-        Quiz_Question q3 = new Quiz_Question("The amount of CO2 a tree may remove from the atmosphere to gain one pound is:",
+        Quiz_Returns q3 = new Quiz_Returns("The amount of CO2 a tree may remove from the atmosphere to gain one pound is:",
                 "About 3 pounds", "About 0.5 pounds", "About 1.5 pounds", 3);
         addQuestion(q3);
 
-        Quiz_Question q4 = new Quiz_Question("What is one of the byproducts of photosynthesis?",
+        Quiz_Returns q4 = new Quiz_Returns("What is one of the byproducts of photosynthesis?",
                 "Shade", "Oxygen", "Shade", 2);
         addQuestion(q4);
 
-        Quiz_Question q5 = new Quiz_Question("The water vapor given off by a tree becomes a critical part of Earth's ______________.",
+        Quiz_Returns q5 = new Quiz_Returns("The water vapor given off by a tree becomes a critical part of Earth's ______________.",
                 "Cloud cycle", "Hydrologic cycle", "Beauty", 2);
         addQuestion(q5);
 
-        Quiz_Question q6 = new Quiz_Question("What element is used from the absorbed water to make the chemical energy for a tree?.",
+        Quiz_Returns q6 = new Quiz_Returns("What element is used from the absorbed water to make the chemical energy for a tree?.",
                 "Oxygen", "Carbon Dioxide", "Hydrogen", 3);
         addQuestion(q6);
 
-        Quiz_Question q7 = new Quiz_Question("Trees are sometimes called ...?", "The Lungs of the World",
+        Quiz_Returns q7 = new Quiz_Returns("Trees are sometimes called ...?", "The Lungs of the World",
                 "The Stomach of the World", "The Shady Part of the World", 1);
         addQuestion(q7);
 
-        Quiz_Question q8 = new Quiz_Question("Approximately how much of the original forests have disappeared?",
+        Quiz_Returns q8 = new Quiz_Returns("Approximately how much of the original forests have disappeared?",
                 "3/4", "1/2", "1/3", 2);
         addQuestion(q8);
 
-        Quiz_Question q9 = new Quiz_Question("The oldest living organism in North America happens to be a rugged tree. This tree is the?",
+        Quiz_Returns q9 = new Quiz_Returns("The oldest living organism in North America happens to be a rugged tree. This tree is the?",
                 "Bristlecone Pine", "Douglas Fir", "Giant Redwood", 1);
         addQuestion(q9);
 
-        Quiz_Question q10 = new Quiz_Question("What is the science of dating through tree-ring growth called?",
+        Quiz_Returns q10 = new Quiz_Returns("What is the science of dating through tree-ring growth called?",
                 "Dendrochronology", "Eldology", "Lookingology", 1);
         addQuestion(q10);
     }
 
-    public void addQuestion(Quiz_Question quizQuestion) {
+    public void addQuestion(Quiz_Returns quizQuestion) {
 
         ContentValues cv = new ContentValues();
         cv.put(Quiz_Contract.QuestionsTable.COLUMN_QUESTION, quizQuestion.getQuestion());
@@ -99,9 +99,9 @@ public class DBHelper_Quiz extends SQLiteOpenHelper {
         db.insert(Quiz_Contract.QuestionsTable.QUIZ_TABLE, null, cv);
     }
 
-    public List<Quiz_Question> getAllQuestions() {
+    public List<Quiz_Returns> getAllQuestions() {
 
-        List<Quiz_Question> quizQuestionList = new ArrayList<>();
+        List<Quiz_Returns> quizQuestionList = new ArrayList<>();
         db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + Quiz_Contract.QuestionsTable.QUIZ_TABLE, null);
 
@@ -109,7 +109,7 @@ public class DBHelper_Quiz extends SQLiteOpenHelper {
 
             do {
 
-                Quiz_Question quizQuestion = new Quiz_Question();
+                Quiz_Returns quizQuestion = new Quiz_Returns();
                 quizQuestion.setQuestion(c.getString(c.getColumnIndex(Quiz_Contract.QuestionsTable.COLUMN_QUESTION)));
                 quizQuestion.setOption1(c.getString(c.getColumnIndex(Quiz_Contract.QuestionsTable.COLUMN_CHOICE1)));
                 quizQuestion.setOption2(c.getString(c.getColumnIndex(Quiz_Contract.QuestionsTable.COLUMN_CHOICE2)));

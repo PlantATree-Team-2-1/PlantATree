@@ -12,8 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stream53.plantatree.plantatree.R;
 
@@ -32,27 +34,27 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if(id == R.id.menu_Catalogue){
+        if (id == R.id.menu_Catalogue) {
 
-            Intent startTopic1 = new Intent (this, CatalogActivity.class);
+            Intent startTopic1 = new Intent(this, CatalogActivity.class);
             startActivity(startTopic1);
 
         }
-        if(id == R.id.menu_Cart){
+        if (id == R.id.menu_Cart) {
 
-            Intent startTopic1 = new Intent (this, ShoppingCartActivity.class);
+            Intent startTopic1 = new Intent(this, ShoppingCartActivity.class);
             startActivity(startTopic1);
 
         }
-        if(id == R.id.menu_Quiz){
+        if (id == R.id.menu_Quiz) {
 
-            Intent startTopic1 = new Intent (this, Quiz_Start.class);
+            Intent startTopic1 = new Intent(this, Quiz_Start.class);
             startActivity(startTopic1);
 
         }
-        if(id == R.id.menu_Compare){
+        if (id == R.id.menu_Compare) {
 
-            Intent startTopic1 = new Intent (this, Image_Drag.class);
+            Intent startTopic1 = new Intent(this, Image_Drag.class);
             startActivity(startTopic1);
 
         }
@@ -61,13 +63,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tree_description);
 
         List<Product> catalog = ShoppingCartHelper.getCatalog(getResources());
-        final List<Product> cart = ShoppingCartHelper.getCart();
 
         int productIndex = getIntent().getExtras().getInt(ShoppingCartHelper.PRODUCT_INDEX);
         final Product selectedProduct = catalog.get(productIndex);
@@ -80,23 +82,49 @@ public class ProductDetailsActivity extends AppCompatActivity {
         TextView productDetailsTextView = (TextView) findViewById(R.id.TextViewProductDetails);
         productDetailsTextView.setText(selectedProduct.description);
 
+        // Update the current quantity in the cart
+        TextView textViewCurrentQuantity = (TextView) findViewById(R.id.textViewCurrentlyInCart);
+        textViewCurrentQuantity.setText("Currently in Cart: " + ShoppingCartHelper.getProductQuantity(selectedProduct));
+
+        // Save a reference to the quantity edit text
+        final EditText editTextQuantity = (EditText) findViewById(R.id.editTextQuantity);
+
         Button addToCartButton = (Button) findViewById(R.id.ButtonAddToCart);
         addToCartButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
+                // Check to see that a valid quantity was entered
+                int quantity = 0;
+                try {
+                    quantity = Integer.parseInt(editTextQuantity.getText()
+                            .toString());
 
-                cart.add(selectedProduct);
+                    if (quantity < 0) {
+                        Toast.makeText(getBaseContext(),
+                                "Please enter a quantity of 0 or higher",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                } catch (Exception e) {
+                    Toast.makeText(getBaseContext(),
+                            "Please enter a numeric quantity",
+                            Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+
+                // If we make it here, a valid quantity was entered
+                ShoppingCartHelper.setQuantity(selectedProduct, quantity);
+
+                // Close the activity
                 finish();
             }
         });
 
-        // Disable the add to cart button if the item is already in the cart
-        if(cart.contains(selectedProduct)) {
-            addToCartButton.setEnabled(false);
-            addToCartButton.setText("Item in Cart");
-        }
     }
 
 }
+
