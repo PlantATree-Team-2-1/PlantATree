@@ -21,5 +21,12 @@
     <string name="postcode">postcode</string>
     <string name="country">country</string>
     <string name="address_line_1">address_line_1</string>
+    <string name="_2_payment">2. Payment</string>
+    <string name="back_to_shipping_details">Back to shipping details</string>
+    <string name="card_number">Card Number</string>
+    <string name="month">Month</string>
+    <string name="cvv">CVV</string>
+    <string name="year">Year</string>
+    <string name="name_on_card">Name On Card</string>
 
 </resources>
