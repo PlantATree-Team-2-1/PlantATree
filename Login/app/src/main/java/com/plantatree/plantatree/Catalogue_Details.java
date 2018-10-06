@@ -2,7 +2,6 @@ package com.plantatree.plantatree;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class ProductDetailsActivity extends AppCompatActivity {
+public class Catalogue_Details extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,13 +35,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         if (id == R.id.menu_Catalogue) {
 
-            Intent startTopic1 = new Intent(this, CatalogActivity.class);
+            Intent startTopic1 = new Intent(this, Catalog_Activity.class);
             startActivity(startTopic1);
 
         }
         if (id == R.id.menu_Cart) {
 
-            Intent startTopic1 = new Intent(this, ShoppingCartActivity.class);
+            Intent startTopic1 = new Intent(this, Shopping_Cart.class);
             startActivity(startTopic1);
 
         }
@@ -69,22 +68,22 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tree_description);
 
-        List<Product> catalog = ShoppingCartHelper.getCatalog(getResources());
+        List<Catalog_Product> catalog = Shopping_Details.getCatalog(getResources());
 
-        int productIndex = getIntent().getExtras().getInt(ShoppingCartHelper.PRODUCT_INDEX);
-        final Product selectedProduct = catalog.get(productIndex);
+        int productIndex = getIntent().getExtras().getInt(Shopping_Details.PRODUCT_INDEX);
+        final Catalog_Product selectedCatalogProduct = catalog.get(productIndex);
 
         // Set the proper image and text
         ImageView productImageView = (ImageView) findViewById(R.id.ImageViewProduct);
-        productImageView.setImageDrawable(selectedProduct.productImage);
+        productImageView.setImageDrawable(selectedCatalogProduct.productImage);
         TextView productTitleTextView = (TextView) findViewById(R.id.TextViewProductTitle);
-        productTitleTextView.setText(selectedProduct.title);
+        productTitleTextView.setText(selectedCatalogProduct.title);
         TextView productDetailsTextView = (TextView) findViewById(R.id.TextViewProductDetails);
-        productDetailsTextView.setText(selectedProduct.description);
+        productDetailsTextView.setText(selectedCatalogProduct.description);
 
         // Update the current quantity in the cart
         TextView textViewCurrentQuantity = (TextView) findViewById(R.id.textViewCurrentlyInCart);
-        textViewCurrentQuantity.setText("Currently in Cart: " + ShoppingCartHelper.getProductQuantity(selectedProduct));
+        textViewCurrentQuantity.setText("Currently in Cart: " + Shopping_Details.getProductQuantity(selectedCatalogProduct));
 
         // Save a reference to the quantity edit text
         final EditText editTextQuantity = (EditText) findViewById(R.id.editTextQuantity);
@@ -117,7 +116,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 }
 
                 // If we make it here, a valid quantity was entered
-                ShoppingCartHelper.setQuantity(selectedProduct, quantity);
+                Shopping_Details.setQuantity(selectedCatalogProduct, quantity);
 
                 // Close the activity
                 finish();

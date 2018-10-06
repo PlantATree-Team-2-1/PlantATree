@@ -11,26 +11,26 @@ import android.widget.TextView;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class Product_Adapter extends BaseAdapter {
+public class Catalogue_Adapter extends BaseAdapter {
 
-    private List<Product> mProductList;
+    private List<Catalog_Product> mCatalogProductList;
     private LayoutInflater mInflater;
     private boolean mShowQuantity;
 
-    public Product_Adapter(List<Product> list, LayoutInflater inflater, boolean showQuantity) {
-        mProductList = list;
+    public Catalogue_Adapter(List<Catalog_Product> list, LayoutInflater inflater, boolean showQuantity) {
+        mCatalogProductList = list;
         mInflater = inflater;
         mShowQuantity = showQuantity;
     }
 
     @Override
     public int getCount() {
-        return mProductList.size();
+        return mCatalogProductList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mProductList.get(position);
+        return mCatalogProductList.get(position);
     }
 
     @Override
@@ -60,15 +60,15 @@ public class Product_Adapter extends BaseAdapter {
             item = (ViewItem) convertView.getTag();
         }
 
-        Product curProduct = mProductList.get(position);
+        Catalog_Product curCatalogProduct = mCatalogProductList.get(position);
 
-        item.productImageView.setImageDrawable(curProduct.productImage);
-        item.productTitle.setText(curProduct.title);
+        item.productImageView.setImageDrawable(curCatalogProduct.productImage);
+        item.productTitle.setText(curCatalogProduct.title);
 
         // Show the quantity in the cart or not
         if (mShowQuantity) {
             item.productQuantity.setText("Quantity: "
-                    + ShoppingCartHelper.getProductQuantity(curProduct));
+                    + Shopping_Details.getProductQuantity(curCatalogProduct));
         } else {
             // Hid the view
             item.productQuantity.setVisibility(View.GONE);

@@ -87,13 +87,13 @@ public class Image_Drag extends AppCompatActivity {
 
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, CatalogActivity.class);
+            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
             startActivity(startTopic1);
 
         }
         if(id == R.id.menu_Cart){
 
-            Intent startTopic1 = new Intent (this, ShoppingCartActivity.class);
+            Intent startTopic1 = new Intent (this, Shopping_Cart.class);
             startActivity(startTopic1);
 
         }

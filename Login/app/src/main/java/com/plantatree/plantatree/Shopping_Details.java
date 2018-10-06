@@ -10,36 +10,36 @@ import android.content.res.Resources;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class ShoppingCartHelper {
+public class Shopping_Details {
 
     public static final String PRODUCT_INDEX = "PRODUCT_INDEX";
 
-    private static List<Product> catalog;
-    private static Map<Product, Shopping_Returns> cartMap = new HashMap<Product, Shopping_Returns>();
+    private static List<Catalog_Product> catalog;
+    private static Map<Catalog_Product, Shopping_Returns> cartMap = new HashMap<Catalog_Product, Shopping_Returns>();
 
-    public static List<Product> getCatalog(Resources res){
+    public static List<Catalog_Product> getCatalog(Resources res){
 
         if(catalog == null) {
-            catalog = new Vector<Product>();
-            catalog.add(new Product("Palm Tree", res
+            catalog = new Vector<Catalog_Product>();
+            catalog.add(new Catalog_Product("Palm Tree", res
                     .getDrawable(R.drawable.palm_tree),
                     "The Arecaceae are a botanical family of perennial plants. Their growth form can be climbers, shrubs, trees and stemless plants, all commonly known as palms. Those having a tree form are colloquially called palm trees.", 29.99));
-            catalog.add(new Product("Oak Tree", res
+            catalog.add(new Catalog_Product("Oak Tree", res
                     .getDrawable(R.drawable.oak_tree),
                     "An oak is a tree or shrub in the genus Quercus of the beech family, Fagaceae. There are approximately 600 extant species of oaks. The common name \"oak\" also appears in the names of species in related genera, notably Lithocarpus, as well as in those of unrelated species such as Grevillea robusta and the Casuarinaceae.", 74.99));
-            catalog.add(new Product("Kauri Tree", res
+            catalog.add(new Catalog_Product("Kauri Tree", res
                     .getDrawable(R.drawable.kauri_tree),
                     "Agathis australis, commonly known by its Māori name kauri, is a coniferous tree of Araucariaceae in the genus Agathis, found north of 38°S in the northern districts of New Zealand's North Island.", 154.99));
-            catalog.add(new Product("Bay Tree", res
+            catalog.add(new Catalog_Product("Bay Tree", res
                     .getDrawable(R.drawable.bay_tree),
                     "The bay tree is a popular evergreen shrub suitable for containers or growing in the ground.", 12.99));
-            catalog.add(new Product("Cabbage Tree", res
+            catalog.add(new Catalog_Product("Cabbage Tree", res
                     .getDrawable(R.drawable.cabbage_tree),
                     "Cordyline australis, commonly known as the cabbage tree, cabbage-palm or tī kōuka, is a widely branched monocot tree endemic to New Zealand. It grows up to 20 metres tall with a stout trunk and sword-like leaves, which are clustered at the tips of the branches and can be up to 1 metre long.", 8.99));
-            catalog.add(new Product("Plant pot", res
+            catalog.add(new Catalog_Product("Plant pot", res
                     .getDrawable(R.drawable.plant_pot),
                     "Plant pot is a container in which flowers and other plants are cultivated and displayed", 4.99));
-            catalog.add(new Product("Spade", res
+            catalog.add(new Catalog_Product("Spade", res
                     .getDrawable(R.drawable.spade),
                     "A tool with a sharp-edged, typically rectangular, metal blade and a long handle, used for digging or cutting earth, sand, turf, etc.", 24.99));
 
@@ -48,21 +48,21 @@ public class ShoppingCartHelper {
         return catalog;
     }
 
-    public static void setQuantity(Product product, int quantity) {
+    public static void setQuantity(Catalog_Product catalogProduct, int quantity) {
         // Get the current cart entry
-        Shopping_Returns curEntry = cartMap.get(product);
+        Shopping_Returns curEntry = cartMap.get(catalogProduct);
 
         // If the quantity is zero or less, remove the products
         if(quantity <= 0) {
             if(curEntry != null)
-                removeProduct(product);
+                removeProduct(catalogProduct);
             return;
         }
 
         // If a current cart entry doesn't exist, create one
         if(curEntry == null) {
-            curEntry = new Shopping_Returns(product, quantity);
-            cartMap.put(product, curEntry);
+            curEntry = new Shopping_Returns(catalogProduct, quantity);
+            cartMap.put(catalogProduct, curEntry);
             return;
         }
 
@@ -70,9 +70,9 @@ public class ShoppingCartHelper {
         curEntry.setQuantity(quantity);
     }
 
-    public static int getProductQuantity(Product product) {
+    public static int getProductQuantity(Catalog_Product catalogProduct) {
         // Get the current cart entry
-        Shopping_Returns curEntry = cartMap.get(product);
+        Shopping_Returns curEntry = cartMap.get(catalogProduct);
 
         if(curEntry != null)
             return curEntry.getQuantity();
@@ -80,13 +80,13 @@ public class ShoppingCartHelper {
         return 0;
     }
 
-    public static void removeProduct(Product product) {
-        cartMap.remove(product);
+    public static void removeProduct(Catalog_Product catalogProduct) {
+        cartMap.remove(catalogProduct);
     }
 
-    public static List<Product> getCartList() {
-        List<Product> cartList = new Vector<Product>(cartMap.keySet().size());
-        for(Product p : cartMap.keySet()) {
+    public static List<Catalog_Product> getCartList() {
+        List<Catalog_Product> cartList = new Vector<Catalog_Product>(cartMap.keySet().size());
+        for(Catalog_Product p : cartMap.keySet()) {
             cartList.add(p);
         }
 

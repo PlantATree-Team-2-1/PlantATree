@@ -2,7 +2,7 @@ package com.plantatree.plantatree;
 
 import android.graphics.drawable.Drawable;
 
-public class Product {
+public class Catalog_Product {
 
     public String title;
     public Drawable productImage;
@@ -10,7 +10,7 @@ public class Product {
     public double price;
     public boolean selected;
 
-    public Product(String title, Drawable productImage, String description, double price) {
+    public Catalog_Product(String title, Drawable productImage, String description, double price) {
 
         this.title = title;
         this.productImage = productImage;

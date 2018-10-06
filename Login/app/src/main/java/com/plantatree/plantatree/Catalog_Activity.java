@@ -17,13 +17,15 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class CatalogActivity extends AppCompatActivity {
+public class Catalog_Activity extends AppCompatActivity {
 
-    private List<Product> mProductList;
+    private List<Catalog_Product> PRODUCT_LIST;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
+        /*inflater variable, reads the chosen xml file and
+        * creates the corresponding objects to it*/
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
@@ -34,15 +36,19 @@ public class CatalogActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
+        /*Redirects the user depending where they are wanting to go
+        * e.g Catalogue triggers, redirects the activity the catalog_activity
+        * where the elected layout is displayed for that class*/
+
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, CatalogActivity.class);
+            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
             startActivity(startTopic1);
 
         }
         if(id == R.id.menu_Cart){
 
-            Intent startTopic1 = new Intent (this, ShoppingCartActivity.class);
+            Intent startTopic1 = new Intent (this, Shopping_Cart.class);
             startActivity(startTopic1);
 
         }
@@ -62,26 +68,39 @@ public class CatalogActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        //Will be created when class is called upon first.
         setContentView(R.layout.activity_catalogue);
 
-        // Obtain a reference to the product catalog
-        mProductList = ShoppingCartHelper.getCatalog(getResources());
+        //References an object from the product catalog
+        PRODUCT_LIST = Shopping_Details.getCatalog(getResources());
+
+
+
+
+
+
+
 
         // Create the list
         ListView listViewCatalog = (ListView) findViewById(R.id.ListViewCatalog);
-        listViewCatalog.setAdapter(new Product_Adapter(mProductList, getLayoutInflater(), false));
+
+
+        listViewCatalog.setAdapter(new Catalogue_Adapter(PRODUCT_LIST, getLayoutInflater(), false));
+
+
 
         listViewCatalog.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent productDetailsIntent = new Intent(getBaseContext(),ProductDetailsActivity.class);
-                productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
+                Intent productDetailsIntent = new Intent(getBaseContext(),Catalogue_Details.class);
+                productDetailsIntent.putExtra(Shopping_Details.PRODUCT_INDEX, position);
                 startActivity(productDetailsIntent);
             }
         });
@@ -91,7 +110,7 @@ public class CatalogActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent viewShoppingCartIntent = new Intent(getBaseContext(), ShoppingCartActivity.class);
+                Intent viewShoppingCartIntent = new Intent(getBaseContext(), Shopping_Cart.class);
                 startActivity(viewShoppingCartIntent);
             }
         });

@@ -2,16 +2,16 @@ package com.plantatree.plantatree;
 
 public class Shopping_Returns {
 
-    private Product mProduct;
+    private Catalog_Product mCatalogProduct;
     private int mQuantity;
 
-    public Shopping_Returns(Product product, int quantity) {
-        mProduct = product;
+    public Shopping_Returns(Catalog_Product catalogProduct, int quantity) {
+        mCatalogProduct = catalogProduct;
         mQuantity = quantity;
     }
 
-    public Product getProduct() {
-        return mProduct;
+    public Catalog_Product getProduct() {
+        return mCatalogProduct;
     }
 
     public int getQuantity() {
