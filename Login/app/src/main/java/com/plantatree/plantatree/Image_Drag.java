@@ -1,6 +1,7 @@
 package com.plantatree.plantatree;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -8,8 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnTouchListener;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -17,59 +17,159 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Image_Drag extends AppCompatActivity {
 
-    private int xCord;
-    private int yCord;
-    private ImageView image;
-    private ViewGroup dragLayout;
+    ImageView image_view_drag;
+    RelativeLayout.LayoutParams PARAMETERS;
+
+    int INITIAL_WIDTH;
+    int INITIAL_HEIGHT;
+    float scalediff, angle;
+    float xCord2, yCord2, xCord, yCord;
+    private static final int NONE = 0;
+    private static final int DRAG = 1;
+    private static final int ZOOM = 2;
+    private int mode = NONE;
+    private float oldDist = 1f;
+    private float d = 0f;
+    private float newRot = 0f;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_drag);
 
-        dragLayout = (ViewGroup) findViewById(R.id.view_root);
-        image = (ImageView) dragLayout.findViewById(R.id.imageView);
+        image_view_drag = (ImageView) findViewById(R.id.image_view_drag);
 
-        //provides the images parameters, having a width 150 and height of 150
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(150, 150);
-        image.setLayoutParams(layoutParams);
-        image.setOnTouchListener(new DragNDropListener());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(500, 500);
+        layoutParams.leftMargin = 50;
+        layoutParams.topMargin = 50;
+        layoutParams.bottomMargin = -500;
+        layoutParams.rightMargin = -500;
+
+        image_view_drag.setLayoutParams(layoutParams);
+
+        image_view_drag.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final ImageView view = (ImageView) v;
+
+                ((BitmapDrawable) view.getDrawable()).setAntiAlias(true);
+                switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                    case MotionEvent.ACTION_DOWN:
+
+                        PARAMETERS = (RelativeLayout.LayoutParams) view.getLayoutParams();
+
+                        INITIAL_WIDTH = PARAMETERS.width;
+                        INITIAL_HEIGHT = PARAMETERS.height;
+
+                        xCord2 = event.getRawX() - PARAMETERS.leftMargin;
+                        yCord2 = event.getRawY() - PARAMETERS.topMargin;
+                        mode = DRAG;
+                        break;
+
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        oldDist = AREA(event);
+                        if (oldDist > 10f) {
+                            mode = ZOOM;
+                        }
+
+                        d = MOVE(event);
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+
+                        break;
+
+                    case MotionEvent.ACTION_POINTER_UP:
+                        mode = NONE;
+
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (mode == DRAG) {
+
+                            xCord = event.getRawX();
+                            yCord = event.getRawY();
+
+                            PARAMETER_SETTING(xCord, yCord);
+
+                            view.setLayoutParams(PARAMETERS);
+
+                        } else if (mode == ZOOM) {
+
+                            if (event.getPointerCount() == 2) {
+
+                                newRot = MOVE(event);
+                                float r = newRot - d;
+                                angle = r;
+
+                                xCord = event.getRawX();
+                                yCord = event.getRawY();
+
+                                float newDist = AREA(event);
+                                if (newDist > 10f) {
+                                    float scale = newDist / oldDist * view.getScaleX();
+                                    if (scale > 0.6) {
+                                        scalediff = scale;
+                                        view.setScaleX(scale);
+                                        view.setScaleY(scale);
+
+                                    }
+                                }
+
+                                view.animate().rotationBy(angle).setDuration(0).setInterpolator(new LinearInterpolator()).start();
+
+                                xCord = event.getRawX();
+                                yCord = event.getRawY();
+
+                                PARAMETERS.leftMargin = (int) ((xCord - xCord2) + scalediff);
+                                PARAMETERS.topMargin = (int) ((yCord - yCord2) + scalediff);
+
+                                PARAMETERS.rightMargin = 0;
+                                PARAMETERS.bottomMargin = 0;
+                                PARAMETERS.rightMargin = PARAMETERS.leftMargin + (5 * PARAMETERS.width);
+                                PARAMETERS.bottomMargin = PARAMETERS.topMargin + (10 * PARAMETERS.height);
+
+                                view.setLayoutParams(PARAMETERS);
+
+
+                            }
+                        }
+                        break;
+                }
+
+                return true;
+
+            }
+        });
     }
 
-    private final class DragNDropListener implements OnTouchListener {
+    public void PARAMETER_SETTING(float x, float y){
 
-        public boolean onTouch(View view, MotionEvent event) {
+        PARAMETERS.leftMargin = (int) (xCord - xCord2);
+        PARAMETERS.topMargin = (int) (yCord - yCord2);
 
-            final int X = (int) event.getRawX();
-            final int Y = (int) event.getRawY();
+        PARAMETERS.rightMargin = 0;
+        PARAMETERS.bottomMargin = 0;
+        PARAMETERS.rightMargin = PARAMETERS.leftMargin + (5 * PARAMETERS.width);
+        PARAMETERS.bottomMargin = PARAMETERS.topMargin + (10 * PARAMETERS.height);
 
-            //Controls the location of the image dependent on users desired location
-            switch (event.getAction() & MotionEvent.ACTION_MASK) {
+    }
 
-                case MotionEvent.ACTION_DOWN:
-                    RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-                    xCord = X - lParams.leftMargin;
-                    yCord = Y - lParams.topMargin;
-                    break;
-                case MotionEvent.ACTION_UP:
-                    break;
-                case MotionEvent.ACTION_POINTER_DOWN:
-                    break;
-                case MotionEvent.ACTION_POINTER_UP:
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view
-                            .getLayoutParams();
-                    layoutParams.leftMargin = X - xCord;
-                    layoutParams.topMargin = Y - yCord;
-                    layoutParams.rightMargin = -150;
-                    layoutParams.bottomMargin = -150;
-                    view.setLayoutParams(layoutParams);
-                    break;
-            }
-            dragLayout.invalidate();
-            return true;
-        }
+    private float AREA(MotionEvent event) {
+
+        float x = event.getX(0) - event.getX(1);
+        float y = event.getY(0) - event.getY(1);
+
+        return (float) Math.sqrt(x * x + y * y);
+    }
+
+    private float MOVE(MotionEvent event) {
+
+        double delta_x = (event.getX(0) - event.getX(1));
+        double delta_y = (event.getY(0) - event.getY(1));
+        double radians = Math.atan2(delta_y, delta_x);
+
+        return (float) Math.toDegrees(radians);
     }
 
     @Override

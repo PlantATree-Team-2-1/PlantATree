@@ -4,20 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/background"
     android:padding="16dp"
     tools:context="com.plantatree.plantatree.Quiz_Activity">
 
-    <TextView
-        android:id="@+id/text_view_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+
+    <ImageView
+        android:layout_width="176dp"
+        android:layout_height="75dp"
+        android:layout_above="@+id/text_view_highscore"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:text="Plant A Tree"
-        android:textColor="@android:color/black"
-        android:textSize="35sp" />
+        android:layout_marginBottom="-212dp"
+        android:src="@drawable/tree_quiz_title" />
 
     <TextView
         android:id="@+id/text_view_highscore"
@@ -35,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="187dp"
-        android:background="@android:color/white"
+        android:layout_marginBottom="168dp"
+        android:background="@android:color/holo_green_dark"
         android:text="Start Quiz" />
 
 </RelativeLayout>

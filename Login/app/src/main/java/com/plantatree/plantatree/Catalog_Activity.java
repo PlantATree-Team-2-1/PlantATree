@@ -24,7 +24,7 @@ public class Catalog_Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        /*inflater variable, reads the chosen xml file and
+        /*Inflater variable, reads the chosen xml file and
         * creates the corresponding objects to it*/
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
@@ -76,33 +76,35 @@ public class Catalog_Activity extends AppCompatActivity {
         //Will be created when class is called upon first.
         setContentView(R.layout.activity_catalogue);
 
-        //References an object from the product catalog
+        //References an object from the product catalog and assigns to a variable
         PRODUCT_LIST = ShoppingCartHelper.getCatalog(getResources());
 
-        // Create the list
-        ListView listViewCatalog = (ListView) findViewById(R.id.ListViewCatalog);
+        // Create a list
+        ListView lv = (ListView) findViewById(R.id.ListViewCatalog);
+        lv.setAdapter(new Catalogue_Adapter(PRODUCT_LIST, getLayoutInflater(), false));
 
-
-        listViewCatalog.setAdapter(new Catalogue_Adapter(PRODUCT_LIST, getLayoutInflater(), false));
-
-
-
-        listViewCatalog.setOnItemClickListener(new OnItemClickListener() {
+        lv.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                Intent productDetailsIntent = new Intent(getBaseContext(),Catalogue_Details.class);
-                productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
-                startActivity(productDetailsIntent);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                /*Retrieves the chosen product and redirects
+                the user to the detail of that product*/
+                Intent intent = new Intent(getBaseContext(),Catalogue_Details.class);
+
+                /*TODO: FIX BUG (Sends user to the wrong product details when in cart) */
+                intent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
+                startActivity(intent);
             }
         });
 
-        Button viewShoppingCart = (Button) findViewById(R.id.ButtonViewCart);
+        //Provides the ability to view the cart within the chosen product details
+        Button viewShoppingCart = (Button) findViewById(R.id.button_view_cart);
         viewShoppingCart.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
                 Intent viewShoppingCartIntent = new Intent(getBaseContext(), Shopping_Cart.class);
                 startActivity(viewShoppingCartIntent);
             }

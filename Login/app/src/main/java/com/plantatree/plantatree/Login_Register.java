@@ -39,17 +39,17 @@ public class Login_Register extends AppCompatActivity {
         REGISTER.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s1 = EMAIL.getText().toString();
-                String s2 = PASSWORD.getText().toString();
-                String s3 = CONFIRM_PASS.getText().toString();
-                if(s1.equals("")||s2.equals("")||s3.equals("")){
+                String email = EMAIL.getText().toString();
+                String pass = PASSWORD.getText().toString();
+                String confirm_pass = CONFIRM_PASS.getText().toString();
+                if(email.equals("")||pass.equals("")||confirm_pass.equals("")){
                     Toast.makeText(getApplicationContext(), "Fields are empty",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    if(s2.equals(s3)){
-                        Boolean chkemail = DATABASE.validateEmail(s1);
-                        if(chkemail==true){
-                            Boolean insert = DATABASE.addUser(s1,s2);
+                    if(pass.equals(confirm_pass)){
+                        Boolean validate = DATABASE.validateEmail(email);
+                        if(validate==true){
+                            Boolean insert = DATABASE.addUser(email,pass);
                             if(insert==true){
                                 Toast.makeText(getApplicationContext(), "Registered Successfully",Toast.LENGTH_SHORT).show();
                             }
