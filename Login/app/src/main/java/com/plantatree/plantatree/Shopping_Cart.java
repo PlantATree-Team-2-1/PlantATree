@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
@@ -82,14 +83,26 @@ public class Shopping_Cart extends AppCompatActivity {
 
         listViewCatalog.setOnItemClickListener(new OnItemClickListener() {
 
+            //TODO: ISSUE HERE WITH ITEMS IN CATALOGUE SENDING TO WRONG ITEM WHEN CLICKED
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent productDetailsIntent = new Intent(getBaseContext(), Catalogue_Details.class);
                 productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
                 startActivity(productDetailsIntent);
             }
         });
+
+        final Button buttonPayment = (Button) findViewById(R.id.button_checkout);
+        buttonPayment.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                checkout();
+            }
+        });
+
 
     }
 
@@ -111,6 +124,13 @@ public class Shopping_Cart extends AppCompatActivity {
 
         TextView productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
         productPriceTextView.setText("Subtotal: $" + subTotal);
+    }
+
+    public void checkout(){
+
+        //redirects the cart activity to checkout.
+        Intent intent = new Intent(Shopping_Cart.this, Pay_Shipping.class);
+        startActivityForResult(intent, 1);
     }
 }
 

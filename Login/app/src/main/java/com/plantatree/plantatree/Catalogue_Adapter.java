@@ -14,8 +14,6 @@ import java.util.List;
 
 public class Catalogue_Adapter extends BaseAdapter {
 
-    //final or not? could prevent memoery leak
-    //private
     private List<Catalog_Product> productList;
     private LayoutInflater mInflater;
     private boolean mShowQuantity;

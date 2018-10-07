@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Catalogue"
-        android:id="@+id/menu_Catalogue"/>
+    <item android:title="MENU"
+        app:showAsAction="always">
 
-    <item android:title="Cart"
-        android:id="@+id/menu_Cart"/>
+        <menu>
 
-    <item android:title="Quiz"
-        android:id="@+id/menu_Quiz"/>
+            <item
+                android:title="Catalogue"
+                android:id="@+id/menu_Catalogue"/>
 
-    <item android:title="Compare"
-        android:id="@+id/menu_Compare"/>
+            <item
+                android:title="Cart"
+                android:id="@+id/menu_Cart"/>
+
+            <item
+                android:title="Quiz"
+                android:icon="@drawable/ic_question"
+                android:id="@+id/menu_Quiz"/>
+
+            <item
+                android:title="Example"
+                android:id="@+id/menu_Compare"/>
+
+        </menu>
+
+    </item>
+
+
+
+
+
+
+
+
+
+
 
 </menu>

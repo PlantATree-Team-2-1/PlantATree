@@ -53,7 +53,7 @@
         android:layout_gravity="right">
 
         <Button
-            android:id="@+id/Button02"
+            android:id="@+id/button_checkout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Proceed to Checkout">

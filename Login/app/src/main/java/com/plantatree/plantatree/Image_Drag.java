@@ -39,13 +39,16 @@ public class Image_Drag extends AppCompatActivity {
 
         image_view_drag = (ImageView) findViewById(R.id.image_view_drag);
 
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(500, 500);
-        layoutParams.leftMargin = 50;
-        layoutParams.topMargin = 50;
-        layoutParams.bottomMargin = -500;
-        layoutParams.rightMargin = -500;
+        /*Specifies how a view is positioned within a RelativeLayout,
+        *with the x and y positionined at 500 each*/
+        RelativeLayout.LayoutParams layoutPosition = new RelativeLayout.LayoutParams(500, 500);
+        layoutPosition.leftMargin = 50;
+        layoutPosition.topMargin = 50;
+        layoutPosition.bottomMargin = -500;
+        layoutPosition.rightMargin = -500;
 
-        image_view_drag.setLayoutParams(layoutParams);
+        //applies the position to the image
+        image_view_drag.setLayoutParams(layoutPosition);
 
         image_view_drag.setOnTouchListener(new View.OnTouchListener() {
 
@@ -53,6 +56,7 @@ public class Image_Drag extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 final ImageView view = (ImageView) v;
 
+                //Retrieves a bitmap that is attached to a imageview
                 ((BitmapDrawable) view.getDrawable()).setAntiAlias(true);
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:

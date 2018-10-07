@@ -84,6 +84,7 @@ public class Quiz_Start extends AppCompatActivity {
     }
 
     public void startQuiz(){
+
         //redirects the start activity to the quiz.
         Intent intent = new Intent(Quiz_Start.this, Quiz_Activity.class);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
