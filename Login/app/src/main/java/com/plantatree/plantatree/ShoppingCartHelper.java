@@ -21,6 +21,7 @@ public class ShoppingCartHelper {
     public static List<Catalog_Product> getCatalog(Resources res){
 
         if(catalog == null) {
+
             catalog = new Vector<Catalog_Product>();
             catalog.add(new Catalog_Product("Palm Tree", res
                     .getDrawable(R.drawable.palm_tree),
@@ -82,7 +83,7 @@ public class ShoppingCartHelper {
         // Get the current cart entry
         ShoppingCartEntry curEntry = cartMap.get(catalogProduct);
 
-        // If the quantity is zero or less, remove the products
+        // If the quantity is zero or less, remove the item from the cart
         if(quantity <= 0) {
             if(curEntry != null)
                 removeProduct(catalogProduct);

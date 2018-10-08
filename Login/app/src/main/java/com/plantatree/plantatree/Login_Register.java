@@ -18,6 +18,7 @@ public class Login_Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_register);
         DATABASE = new DBHelper_Login(this);
         EMAIL=(EditText)findViewById(R.id.edit_text_emailReg);

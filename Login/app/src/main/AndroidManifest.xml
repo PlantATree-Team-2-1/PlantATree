@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name="com.plantatree.plantatree.Shopping_Cart"/>
         <activity android:name="com.plantatree.plantatree.Catalogue_Details"/>
         <activity android:name="com.plantatree.plantatree.Catalog_Activity"/>
