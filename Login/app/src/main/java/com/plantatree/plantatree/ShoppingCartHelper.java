@@ -35,7 +35,7 @@ public class ShoppingCartHelper {
                     .getDrawable(R.drawable.oak_tree),
                     "An oak is a tree or shrub in the genus Quercus of the beech family, Fagaceae. There are approximately 600 extant species of oaks. The common name \"oak\" also appears in the names of species in related genera, notably Lithocarpus, as well as in those of unrelated species such as Grevillea robusta and the Casuarinaceae." + System.getProperty("line.separator") +
                             "Category: Evengreen" + System.getProperty("line.separator") +
-                            "Soil Drainage: fast" + System.getProperty("line.separator") +
+                            "Soil Drainage: Fast" + System.getProperty("line.separator") +
                             "Sun: Sunny " + System.getProperty("line.separator")+
                             "Maintenance requirements: Low" + System.getProperty("line.separator") +
                             "Max height of mature tree: over 3m " + System.getProperty("line.separator") +

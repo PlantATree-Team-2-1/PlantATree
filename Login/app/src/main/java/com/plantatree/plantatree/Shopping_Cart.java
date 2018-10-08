@@ -5,12 +5,15 @@ import java.util.List;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ public class Shopping_Cart extends AppCompatActivity {
 
     private List<Catalog_Product> mCartList;
     private Catalogue_Adapter mProductAdapter;
+    public static double subTotal = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,7 +72,6 @@ public class Shopping_Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shopping_cart);
 
-
         mCartList = ShoppingCartHelper.getCartList();
 
         // Make sure to clear the selections
@@ -103,7 +106,6 @@ public class Shopping_Cart extends AppCompatActivity {
             }
         });
 
-
     }
 
     @Override
@@ -115,7 +117,7 @@ public class Shopping_Cart extends AppCompatActivity {
             mProductAdapter.notifyDataSetChanged();
         }
 
-        double subTotal = 0;
+        //double subTotal = 0;
 
         for (Catalog_Product p : mCartList) {
             int quantity = ShoppingCartHelper.getProductQuantity(p);

@@ -59,6 +59,7 @@
             android:text="Proceed to Checkout">
 
         </Button>
+
     </LinearLayout>
 
 </LinearLayout>

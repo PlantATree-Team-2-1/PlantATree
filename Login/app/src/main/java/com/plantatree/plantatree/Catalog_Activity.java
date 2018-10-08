@@ -20,6 +20,7 @@ import com.stream53.plantatree.plantatree.R;
 public class Catalog_Activity extends AppCompatActivity {
 
     private List<Catalog_Product> PRODUCT_LIST;
+    private Catalogue_Adapter adapter;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,7 +82,29 @@ public class Catalog_Activity extends AppCompatActivity {
 
         // Create a list
         ListView lv = (ListView) findViewById(R.id.ListViewCatalog);
-        lv.setAdapter(new Catalogue_Adapter(PRODUCT_LIST, getLayoutInflater(), false));
+
+        adapter = new Catalogue_Adapter(PRODUCT_LIST, getLayoutInflater(), false);
+        lv.setAdapter(adapter);
+
+        //FILTER DOES NOT WORK
+        /*EditText filter = (EditText) findViewById(R.id.edit_text_search);
+        filter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                (Catalog_Activity.this).adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });*/
 
         lv.setOnItemClickListener(new OnItemClickListener() {
 
@@ -109,6 +132,5 @@ public class Catalog_Activity extends AppCompatActivity {
                 startActivity(viewShoppingCartIntent);
             }
         });
-
     }
 }

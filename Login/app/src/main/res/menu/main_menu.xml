@@ -17,7 +17,6 @@
 
             <item
                 android:title="Quiz"
-                android:icon="@drawable/ic_question"
                 android:id="@+id/menu_Quiz"/>
 
             <item
