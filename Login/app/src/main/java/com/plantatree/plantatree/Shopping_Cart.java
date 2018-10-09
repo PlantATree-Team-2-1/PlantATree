@@ -18,13 +18,14 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 import com.stream53.plantatree.plantatree.R;
 
 public class Shopping_Cart extends AppCompatActivity {
 
     private List<Catalog_Product> mCartList;
     private Catalogue_Adapter mProductAdapter;
-    public static double subTotal = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -117,7 +118,8 @@ public class Shopping_Cart extends AppCompatActivity {
             mProductAdapter.notifyDataSetChanged();
         }
 
-        //double subTotal = 0;
+        double subTotal = 0;
+        subTotal =Double.parseDouble(new DecimalFormat("##.####").format(subTotal));
 
         for (Catalog_Product p : mCartList) {
             int quantity = ShoppingCartHelper.getProductQuantity(p);
