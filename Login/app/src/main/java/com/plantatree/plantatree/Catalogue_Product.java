@@ -3,7 +3,7 @@ package com.plantatree.plantatree;
 
 import android.graphics.drawable.Drawable;
 
-public class Catalog_Product {
+public class Catalogue_Product {
 
     public String title;
     public Drawable productImage;
@@ -11,7 +11,7 @@ public class Catalog_Product {
     public double price;
     public boolean selected;
 
-    public Catalog_Product(String title, Drawable productImage, String description, double price) {
+    public Catalogue_Product(String title, Drawable productImage, String description, double price) {
 
         /*Provides the ability to refer to the current object,
         * which can be used to refer current class instance variables*/

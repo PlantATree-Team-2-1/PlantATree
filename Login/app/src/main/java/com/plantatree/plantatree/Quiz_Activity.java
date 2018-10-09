@@ -62,7 +62,7 @@ public class Quiz_Activity extends AppCompatActivity {
 
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent (this, Catalogue_Activity.class);
             startActivity(startTopic1);
 
         }
@@ -148,6 +148,10 @@ public class Quiz_Activity extends AppCompatActivity {
         rb3.setTextColor(textColorDefaultRb);
         rbGroup.clearCheck();
 
+        /*Rotates through all questions until the questionCounter equals
+         * the questionCountTotal, which than calls the method finish,
+         * and brings the user to the start of the quiz.*/
+
         if (questionCounter < questionCountTotal) {
             currentQuizQuestion = quizQuestionList.get(questionCounter);
 
@@ -192,7 +196,6 @@ public class Quiz_Activity extends AppCompatActivity {
 
         }.start();
     }
-
 
     private void updateCountDownText() {
 

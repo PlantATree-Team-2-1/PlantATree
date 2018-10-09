@@ -18,6 +18,7 @@ public class Login_Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -28,13 +29,14 @@ public class Login_Login extends AppCompatActivity {
 
         //LOGIN BUTTON, ON LOGIN ACTIVITY LISTENER
         LOGIN.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String email = EMAIL_LOGIN.getText().toString();
                 String password = PASS_LOGIN.getText().toString();
-                Boolean Chkemailpass = DATABASE.emailPassword(email, password);
+                Boolean validate = DATABASE.emailPassword(email, password);
 
-                if(Chkemailpass==true){
+                if(validate==true){
 
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                     redirect();
@@ -48,7 +50,7 @@ public class Login_Login extends AppCompatActivity {
 
     public void redirect(){
 
-        Intent intent = new Intent(this, Catalog_Activity.class);
+        Intent intent = new Intent(this, Catalogue_Activity.class);
         startActivity(intent);
     }
 }

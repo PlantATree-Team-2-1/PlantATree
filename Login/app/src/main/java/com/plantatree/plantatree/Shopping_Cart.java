@@ -15,11 +15,13 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 import com.stream53.plantatree.plantatree.R;
 
 public class Shopping_Cart extends AppCompatActivity {
 
-    private List<Catalog_Product> mCartList;
+    private List<Catalogue_Product> mCartList;
     private Catalogue_Adapter mProductAdapter;
 
     @Override
@@ -37,7 +39,7 @@ public class Shopping_Cart extends AppCompatActivity {
 
         if (id == R.id.menu_Catalogue) {
 
-            Intent startTopic1 = new Intent(this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent(this, Catalogue_Activity.class);
             startActivity(startTopic1);
 
         }
@@ -68,8 +70,7 @@ public class Shopping_Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shopping_cart);
 
-
-        mCartList = ShoppingCartHelper.getCartList();
+        mCartList = Catalogue_Helper.getCartList();
 
         // Make sure to clear the selections
         for (int i = 0; i < mCartList.size(); i++) {
@@ -89,7 +90,7 @@ public class Shopping_Cart extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent productDetailsIntent = new Intent(getBaseContext(), Catalogue_Details.class);
-                productDetailsIntent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
+                productDetailsIntent.putExtra(Catalogue_Helper.PRODUCT_INDEX, position);
                 startActivity(productDetailsIntent);
             }
         });
@@ -103,7 +104,6 @@ public class Shopping_Cart extends AppCompatActivity {
             }
         });
 
-
     }
 
     @Override
@@ -116,9 +116,10 @@ public class Shopping_Cart extends AppCompatActivity {
         }
 
         double subTotal = 0;
+        subTotal =Double.parseDouble(new DecimalFormat("00.00").format(subTotal));
 
-        for (Catalog_Product p : mCartList) {
-            int quantity = ShoppingCartHelper.getProductQuantity(p);
+        for (Catalogue_Product p : mCartList) {
+            int quantity = Catalogue_Helper.getProductQuantity(p);
             subTotal += p.price * quantity;
         }
 

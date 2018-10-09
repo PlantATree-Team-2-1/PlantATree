@@ -14,11 +14,11 @@ import java.util.List;
 
 public class Catalogue_Adapter extends BaseAdapter {
 
-    private List<Catalog_Product> productList;
+    private List<Catalogue_Product> productList;
     private LayoutInflater mInflater;
     private boolean mShowQuantity;
 
-    public Catalogue_Adapter(List<Catalog_Product> list, LayoutInflater inflater, boolean showQuantity) {
+    public Catalogue_Adapter(List<Catalogue_Product> list, LayoutInflater inflater, boolean showQuantity) {
 
         productList = list;
         mInflater = inflater;
@@ -63,7 +63,7 @@ public class Catalogue_Adapter extends BaseAdapter {
             item = (ViewItem) convertView.getTag();
         }
 
-        Catalog_Product curProduct = productList.get(position);
+        Catalogue_Product curProduct = productList.get(position);
 
         //sets the image to the ImageView, dependent on the users choice
         item.productImageView.setImageDrawable(curProduct.productImage);
@@ -75,7 +75,7 @@ public class Catalogue_Adapter extends BaseAdapter {
         if (mShowQuantity) {
 
             item.productQuantity.setTextColor(Color.RED);
-            item.productQuantity.setText("Quantity: " + ShoppingCartHelper.getProductQuantity(curProduct));
+            item.productQuantity.setText("Quantity: " + Catalogue_Helper.getProductQuantity(curProduct));
 
         } else {
             // Hid the view

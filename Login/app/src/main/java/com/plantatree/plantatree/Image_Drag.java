@@ -44,8 +44,8 @@ public class Image_Drag extends AppCompatActivity {
         RelativeLayout.LayoutParams layoutPosition = new RelativeLayout.LayoutParams(500, 500);
         layoutPosition.leftMargin = 50;
         layoutPosition.topMargin = 50;
-        layoutPosition.bottomMargin = -500;
-        layoutPosition.rightMargin = -500;
+        layoutPosition.bottomMargin = -150;
+        layoutPosition.rightMargin = -150;
 
         //applies the position to the image
         image_view_drag.setLayoutParams(layoutPosition);
@@ -191,7 +191,7 @@ public class Image_Drag extends AppCompatActivity {
 
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent (this, Catalogue_Activity.class);
             startActivity(startTopic1);
 
         }

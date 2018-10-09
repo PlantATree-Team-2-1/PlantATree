@@ -2,7 +2,6 @@ package com.plantatree.plantatree;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +37,7 @@ public class Catalogue_Details extends AppCompatActivity {
 
         if (id == R.id.menu_Catalogue) {
 
-            Intent startTopic1 = new Intent(this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent(this, Catalogue_Activity.class);
             startActivity(startTopic1);
 
         }
@@ -70,10 +69,10 @@ public class Catalogue_Details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tree_description);
 
-        List<Catalog_Product> catalog = ShoppingCartHelper.getCatalog(getResources());
+        List<Catalogue_Product> catalog = Catalogue_Helper.getCatalog(getResources());
 
-        int productIndex = getIntent().getExtras().getInt(ShoppingCartHelper.PRODUCT_INDEX);
-        final Catalog_Product selectedProduct = catalog.get(productIndex);
+        int productIndex = getIntent().getExtras().getInt(Catalogue_Helper.PRODUCT_INDEX);
+        final Catalogue_Product selectedProduct = catalog.get(productIndex);
 
         // Set the proper image and text
         ImageView productImageView = (ImageView) findViewById(R.id.ImageViewProduct);
@@ -91,7 +90,7 @@ public class Catalogue_Details extends AppCompatActivity {
         // Update the current quantity in the cart
         TextView textViewCurrentQuantity = (TextView) findViewById(R.id.textViewCurrentlyInCart);
         textViewCurrentQuantity.setText("Currently in Cart: "
-                + ShoppingCartHelper.getProductQuantity(selectedProduct));
+                + Catalogue_Helper.getProductQuantity(selectedProduct));
 
         // Save a reference to the quantity edit text
         final EditText editTextQuantity = (EditText) findViewById(R.id.editTextQuantity);
@@ -124,7 +123,7 @@ public class Catalogue_Details extends AppCompatActivity {
                 }
 
                 // If we make it here, a valid quantity was entered
-                ShoppingCartHelper.setQuantity(selectedProduct, quantity);
+                Catalogue_Helper.setQuantity(selectedProduct, quantity);
 
                 // Close the activity
                 finish();

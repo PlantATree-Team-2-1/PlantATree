@@ -8,13 +8,10 @@
     android:padding="16dp"
     tools:context="com.plantatree.plantatree.Quiz_Activity">
 
-
     <ImageView
         android:layout_width="176dp"
-        android:layout_height="75dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="187dp"
+        android:layout_height="73dp"
+        android:layout_centerInParent="true"
         android:src="@drawable/tree_quiz_title" />
 
     <TextView
@@ -23,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="248dp"
         android:text="Highscore: 0"
         android:textSize="20sp" />
 
