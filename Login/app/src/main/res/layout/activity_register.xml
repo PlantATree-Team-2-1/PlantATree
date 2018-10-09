@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="89dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="textPersonName" />
 
     <EditText

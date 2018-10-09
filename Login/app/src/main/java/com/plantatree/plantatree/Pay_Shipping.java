@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.stream53.plantatree.plantatree.R;
 
@@ -16,6 +18,21 @@ public class Pay_Shipping extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shipping);
+
+        final Button buttonShipping = findViewById(R.id.continueToBilling);
+        buttonShipping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirect();
+            }
+        });
+    }
+
+    public void redirect(){
+
+        //redirects the start activity to the quiz.
+        Intent intent = new Intent(this, Pay_Payment.class);
+        startActivity(intent);
     }
 
     @Override

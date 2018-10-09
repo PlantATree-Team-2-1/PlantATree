@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/background"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.plantatree.plantatree.Pay_Payment">
 
     <TextView
         android:id="@+id/orderSummary"
@@ -252,10 +253,10 @@
         android:id="@+id/placeOrder"
         android:layout_width="185dp"
         android:layout_height="35dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/back_to_shipping_details"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Place Order"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

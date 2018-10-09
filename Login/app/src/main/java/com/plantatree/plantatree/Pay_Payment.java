@@ -11,8 +11,6 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Pay_Payment extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

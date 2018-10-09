@@ -37,7 +37,7 @@ public class LoginRegisterTest {
     @Test
     public void testButtonOnClick(){
 
-        assertNotNull(sActivity.findViewById(R.id.button_register));
+        assertNotNull(sActivity.findViewById(R.id.button_start_quiz));
         onView(withId(R.id.button_register)).perform(click());
         Activity quizActivity = getInstrumentation().waitForMonitorWithTimeout(monitor, 3000);
         assertNotNull(quizActivity);
