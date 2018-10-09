@@ -12,13 +12,19 @@
         android:textColor="#000000"
         android:textSize="24dip"
         android:layout_margin="5dip"
+<<<<<<< HEAD
         android:text="Product Catalog">
     </TextView>
     
+=======
+        android:text="Product Catalog"></TextView>
+
+>>>>>>> 4dd4990145eeaccd2ef0327c01e2ef065c9d1d61
     <EditText
         android:id="@+id/edit_text_search"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:hint="Search" />
 
     <ListView
         android:layout_height="wrap_content"
