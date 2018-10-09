@@ -73,6 +73,10 @@ public class ShoppingCartHelper {
             catalog.add(new Catalog_Product("Spade", res
                     .getDrawable(R.drawable.spade),
                     "A tool with a sharp-edged, typically rectangular, metal blade and a long handle, used for digging or cutting earth, sand, turf, etc.", 24.99));
+            catalog.add(new Catalog_Product("Compost", res
+                    .getDrawable(R.drawable.compost),
+                    "A tool with a sharp-edged, typically rectangular, metal blade and a long handle, used for digging or cutting earth, sand, turf, etc.", 13.99));
+
         }
 
         return catalog;
