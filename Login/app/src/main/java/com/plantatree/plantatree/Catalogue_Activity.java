@@ -17,9 +17,9 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.stream53.plantatree.plantatree.R;
 
-public class Catalog_Activity extends AppCompatActivity {
+public class Catalogue_Activity extends AppCompatActivity {
 
-    private List<Catalog_Product> PRODUCT_LIST;
+    private List<Catalogue_Product> PRODUCT_LIST;
     private Catalogue_Adapter adapter;
 
     @Override
@@ -43,7 +43,7 @@ public class Catalog_Activity extends AppCompatActivity {
 
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent (this, Catalogue_Activity.class);
             startActivity(startTopic1);
 
         }
@@ -78,7 +78,7 @@ public class Catalog_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_catalogue);
 
         //References an object from the product catalog and assigns to a variable
-        PRODUCT_LIST = ShoppingCartHelper.getCatalog(getResources());
+        PRODUCT_LIST = Catalogue_Helper.getCatalog(getResources());
 
         // Create a list
         ListView lv = (ListView) findViewById(R.id.ListViewCatalog);
@@ -97,7 +97,7 @@ public class Catalog_Activity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                (Catalog_Activity.this).adapter.getFilter().filter(charSequence);
+                (Catalogue_Activity.this).adapter.getFilter().filter(charSequence);
             }
 
             @Override
@@ -116,7 +116,7 @@ public class Catalog_Activity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(),Catalogue_Details.class);
 
                 /*TODO: FIX BUG (Sends user to the wrong product details when in cart) */
-                intent.putExtra(ShoppingCartHelper.PRODUCT_INDEX, position);
+                intent.putExtra(Catalogue_Helper.PRODUCT_INDEX, position);
                 startActivity(intent);
             }
         });

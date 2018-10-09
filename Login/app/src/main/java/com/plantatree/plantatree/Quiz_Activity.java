@@ -62,7 +62,7 @@ public class Quiz_Activity extends AppCompatActivity {
 
         if(id == R.id.menu_Catalogue){
 
-            Intent startTopic1 = new Intent (this, Catalog_Activity.class);
+            Intent startTopic1 = new Intent (this, Catalogue_Activity.class);
             startActivity(startTopic1);
 
         }

@@ -50,7 +50,7 @@ public class Login_Login extends AppCompatActivity {
 
     public void redirect(){
 
-        Intent intent = new Intent(this, Catalog_Activity.class);
+        Intent intent = new Intent(this, Catalogue_Activity.class);
         startActivity(intent);
     }
 }

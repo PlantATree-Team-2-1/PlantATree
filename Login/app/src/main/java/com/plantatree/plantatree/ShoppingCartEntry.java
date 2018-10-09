@@ -2,15 +2,15 @@ package com.plantatree.plantatree;
 
 public class ShoppingCartEntry {
 
-    private Catalog_Product mCatalogProduct;
+    private Catalogue_Product mCatalogProduct;
     private int mQuantity;
 
-    public ShoppingCartEntry(Catalog_Product catalogProduct, int quantity) {
+    public ShoppingCartEntry(Catalogue_Product catalogProduct, int quantity) {
         mCatalogProduct = catalogProduct;
         mQuantity = quantity;
     }
 
-    public Catalog_Product getProduct() {
+    public Catalogue_Product getProduct() {
         return mCatalogProduct;
     }
 
