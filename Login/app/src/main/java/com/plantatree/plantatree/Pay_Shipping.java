@@ -8,10 +8,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.stream53.plantatree.plantatree.R;
 
 public class Pay_Shipping extends AppCompatActivity {
+
+    EditText firstName, lastName, emailName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +25,33 @@ public class Pay_Shipping extends AppCompatActivity {
 
         final Button buttonShipping = findViewById(R.id.continueToBilling);
         buttonShipping.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 redirect();
             }
         });
+
+        //first name
+        firstName =(EditText)findViewById(R.id.firstName);
+        String fName = firstName.getText().toString();
+
+        //last name
+        lastName =(EditText)findViewById(R.id.lastName);
+        String lName = lastName.getText().toString();
+
+        //email
+        emailName =(EditText)findViewById(R.id.email);
+        String eName = emailName.getText().toString();
+
+        //Grab price from shopping_cart subtotal
+        Shopping_Cart cart = new Shopping_Cart();
+        TextView priceText = cart.productPriceTextView;
+
+        String priceString = priceText.getText().toString();
+
+
+
     }
 
     public void redirect(){
