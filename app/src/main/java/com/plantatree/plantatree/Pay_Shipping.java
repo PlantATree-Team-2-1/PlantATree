@@ -32,8 +32,18 @@ public class Pay_Shipping extends AppCompatActivity {
             }
         });
 
+        final Button buttonBackToCart = findViewById(R.id.backToViewCart);
+        buttonBackToCart.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                redirect2();
+            }
+        });
+
+        /*
         //first name
-        /*firstName =(EditText)findViewById(R.id.firstName);
+        firstName =(EditText)findViewById(R.id.firstName);
         String fName = firstName.getText().toString();
 
         //last name
@@ -48,8 +58,8 @@ public class Pay_Shipping extends AppCompatActivity {
         Shopping_Cart cart = new Shopping_Cart();
         TextView priceText = cart.productPriceTextView;
 
-        String priceString = priceText.getText().toString();*/
-
+        String priceString = priceText.getText().toString();
+        */
 
 
     }
@@ -59,6 +69,12 @@ public class Pay_Shipping extends AppCompatActivity {
         //redirects the start activity to the quiz.
         Intent intent = new Intent(this, Pay_Payment.class);
         startActivity(intent);
+    }
+
+    public void redirect2() {
+        Intent intent = new Intent(this, Shopping_Cart.class);
+        startActivity(intent);
+
     }
 
     @Override

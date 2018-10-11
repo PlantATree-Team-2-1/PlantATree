@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.stream53.plantatree.plantatree.R;
 
@@ -16,6 +18,37 @@ public class Pay_Payment extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        final Button buttonPlaceOrder = (Button) findViewById(R.id.placeOrder);
+        buttonPlaceOrder.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                PlaceOrder();
+            }
+        });
+
+        final Button buttonBackToShipping = (Button) findViewById(R.id.backtoShippingDetails);
+        buttonBackToShipping.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                BackToShipping();
+            }
+        });
+
+
+    }
+
+    public void PlaceOrder() {
+        //button that directs user to order confirmation page
+        Intent intent = new Intent(Pay_Payment.this, Pay_Confirmation.class);
+        startActivity(intent);
+    }
+
+    public void BackToShipping() {
+        Intent intent = new Intent(Pay_Payment.this, Pay_Shipping.class);
+        startActivity(intent);
     }
 
     @Override

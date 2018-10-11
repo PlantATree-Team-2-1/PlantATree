@@ -27,6 +27,7 @@
         <activity android:name="com.plantatree.plantatree.Image_Drag"/>
         <activity android:name="com.plantatree.plantatree.Pay_Shipping"/>
         <activity android:name="com.plantatree.plantatree.Pay_Payment"/>
+        <activity android:name="com.plantatree.plantatree.Pay_Confirmation"/>
 
     </application>
 
