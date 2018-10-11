@@ -42,6 +42,7 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
   - chmod +x gradlew
   - ./gradlew dependencies || true
+  - android list targets
 
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
