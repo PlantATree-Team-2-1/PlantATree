@@ -117,8 +117,8 @@ public class Shopping_Cart extends AppCompatActivity {
         if (mProductAdapter != null) {
             mProductAdapter.notifyDataSetChanged();
         }
-        double subTotal = 0;
 
+        double subTotal = 0;
         subTotal =Double.parseDouble(new DecimalFormat("00.00").format(subTotal));
 
         for (Catalogue_Product p : mCartList) {
@@ -133,7 +133,7 @@ public class Shopping_Cart extends AppCompatActivity {
 
             double a;
 
-            a = subTotal+((Quiz_Activity.scoreCart/100)*subTotal);
+            a = subTotal-((Quiz_Activity.scoreCart/100)*subTotal);
 
             TextView textView = (TextView) findViewById(R.id.TextViewSubtotal);
             textView.setText("Subtotal: $ DISCOUNT" + a);

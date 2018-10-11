@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.plantatree.plantatree.Login_Register">
+        <activity android:name="com.plantatree.plantatree.Catalogue_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,6 @@
 
         <activity android:name="com.plantatree.plantatree.Shopping_Cart"/>
         <activity android:name="com.plantatree.plantatree.Catalogue_Details"/>
-        <activity android:name="com.plantatree.plantatree.Catalogue_Activity"/>
         <activity android:name="com.plantatree.plantatree.Login_Login"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Start"/>
         <activity android:name="com.plantatree.plantatree.Quiz_Activity"/>
