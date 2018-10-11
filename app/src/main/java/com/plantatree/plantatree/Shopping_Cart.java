@@ -5,6 +5,7 @@ import java.util.List;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,7 +25,6 @@ public class Shopping_Cart extends AppCompatActivity {
     TextView productPriceTextView;
     private List<Catalogue_Product> mCartList;
     private Catalogue_Adapter mProductAdapter;
-    public static double subTotal = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,6 +69,7 @@ public class Shopping_Cart extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shopping_cart);
 
@@ -116,6 +117,7 @@ public class Shopping_Cart extends AppCompatActivity {
         if (mProductAdapter != null) {
             mProductAdapter.notifyDataSetChanged();
         }
+        double subTotal = 0;
 
         subTotal =Double.parseDouble(new DecimalFormat("00.00").format(subTotal));
 
@@ -126,6 +128,17 @@ public class Shopping_Cart extends AppCompatActivity {
 
         productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
         productPriceTextView.setText("Subtotal: $" + subTotal);
+
+        if(Quiz_Activity.quizDone == true){
+
+            double a;
+
+            a = subTotal + ((Quiz_Activity.scoreCart/100) * subTotal);
+            subTotal = a;
+
+            TextView textView = (TextView) findViewById(R.id.TextViewSubtotal);
+            textView.setText("Subtotal: $" + subTotal);
+        }
     }
 
     public void checkout(){

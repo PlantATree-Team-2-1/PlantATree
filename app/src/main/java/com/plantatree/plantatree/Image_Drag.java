@@ -56,7 +56,7 @@ public class Image_Drag extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 final ImageView view = (ImageView) v;
 
-                //Retrieves a bitmap that is attached to a imageview
+                //Retrieves a bitmap that is attached to an imageview
                 ((BitmapDrawable) view.getDrawable()).setAntiAlias(true);
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:

@@ -46,6 +46,8 @@ public class Quiz_Activity extends AppCompatActivity {
     private int questionCountTotal;
     private long timeLeftInMillis;
     private boolean answered;
+    public static boolean quizDone = false;
+    public static int scoreCart;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -283,6 +285,12 @@ public class Quiz_Activity extends AppCompatActivity {
         Intent resultIntent = new Intent();
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, resultIntent);
+
+        quizDone = true;
+        scoreCart = score;
+
+        Toast.makeText(getApplicationContext(),
+                "You have earned "+ score + "% off your order", Toast.LENGTH_SHORT).show();
 
         finish();
     }

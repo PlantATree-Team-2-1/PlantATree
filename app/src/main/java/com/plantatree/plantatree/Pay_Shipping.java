@@ -33,7 +33,7 @@ public class Pay_Shipping extends AppCompatActivity {
         });
 
         //first name
-        firstName =(EditText)findViewById(R.id.firstName);
+        /*firstName =(EditText)findViewById(R.id.firstName);
         String fName = firstName.getText().toString();
 
         //last name
@@ -48,7 +48,7 @@ public class Pay_Shipping extends AppCompatActivity {
         Shopping_Cart cart = new Shopping_Cart();
         TextView priceText = cart.productPriceTextView;
 
-        String priceString = priceText.getText().toString();
+        String priceString = priceText.getText().toString();*/
 
 
 
