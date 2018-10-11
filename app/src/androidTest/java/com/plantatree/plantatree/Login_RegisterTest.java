@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNotNull;
 /*Tests the Login_Register Button on the register activity
  * to see if the button is indeed, working properly*/
 
-public class LoginRegisterTest {
+public class Login_RegisterTest {
 
     @Rule
     public ActivityTestRule<Login_Register> sActivityTestRule = new ActivityTestRule<Login_Register>(Login_Register.class);
