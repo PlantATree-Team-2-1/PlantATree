@@ -133,11 +133,10 @@ public class Shopping_Cart extends AppCompatActivity {
 
             double a;
 
-            a = subTotal + ((Quiz_Activity.scoreCart/100) * subTotal);
-            subTotal = a;
+            a = subTotal+((Quiz_Activity.scoreCart/100)*subTotal);
 
             TextView textView = (TextView) findViewById(R.id.TextViewSubtotal);
-            textView.setText("Subtotal: $" + subTotal);
+            textView.setText("Subtotal: $ DISCOUNT" + a);
         }
     }
 
