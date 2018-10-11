@@ -21,7 +21,7 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Shopping_Cart extends AppCompatActivity {
 
-    TextView productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
+    TextView productPriceTextView;
     private List<Catalogue_Product> mCartList;
     private Catalogue_Adapter mProductAdapter;
     public static double subTotal = 0;
@@ -124,6 +124,7 @@ public class Shopping_Cart extends AppCompatActivity {
             subTotal += p.price * quantity;
         }
 
+        productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
         productPriceTextView.setText("Subtotal: $" + subTotal);
     }
 
