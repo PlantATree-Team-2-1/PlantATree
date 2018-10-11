@@ -15,12 +15,6 @@
         android:text="Product Catalog">
     </TextView>
 
-    <EditText
-        android:id="@+id/edit_text_search"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Search" />
-
     <ListView
         android:layout_height="wrap_content"
         android:layout_weight="1"
