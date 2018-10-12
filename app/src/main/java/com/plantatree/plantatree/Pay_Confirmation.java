@@ -9,14 +9,20 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Pay_Confirmation extends AppCompatActivity {
 
+<<<<<<< HEAD
     EditText FIRST_NAME, lastName, emailName;
     TextView f_NAME, lastNameView, emailNameView, subTotalView;
 
+=======
+    EditText firstName, lastName, emailName, test1;
+    TextView firstNameView, lastNameView, emailNameView, subTotalView, testView;
+>>>>>>> 4c43ab568bcf2c5704ca72c8baa957ee3e5d3bad
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
+<<<<<<< HEAD
 
 
 
@@ -37,6 +43,17 @@ public class Pay_Confirmation extends AppCompatActivity {
 
         //PLACE value into displayFirstName textview
 
+=======
+        /*
+        //GET variable firstName value
+        firstName =(EditText)findViewById(R.id.firstName);
+        String fName = firstName.getText().toString();
+
+        //PLACE value into displayFirstName textview
+        firstNameView = (TextView) findViewById(R.id.displayFirstName);
+        firstNameView.setText(fName);
+        */
+>>>>>>> 4c43ab568bcf2c5704ca72c8baa957ee3e5d3bad
 
         /*
         //GET
@@ -59,13 +76,17 @@ public class Pay_Confirmation extends AppCompatActivity {
         //PLACE
         subTotalView = (TextView) findViewById(R.id.displaySubTotal);
         subTotalView.setText(priceText.toString());
+
         */
+
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+
 
 
 
