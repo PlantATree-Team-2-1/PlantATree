@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -25,6 +26,7 @@ public class Shopping_Cart extends AppCompatActivity {
     TextView productPriceTextView;
     private List<Catalogue_Product> mCartList;
     private Catalogue_Adapter mProductAdapter;
+    double discountSubtotal = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -114,7 +116,8 @@ public class Shopping_Cart extends AppCompatActivity {
         }
 
         double subTotal = 0;
-        subTotal =Double.parseDouble(new DecimalFormat("00.00").format(subTotal));
+
+        subTotal = Double.parseDouble(new DecimalFormat("00.00").format(subTotal));
 
         for (Catalogue_Product p : mCartList) {
             int quantity = Catalogue_Helper.getProductQuantity(p);
@@ -124,14 +127,32 @@ public class Shopping_Cart extends AppCompatActivity {
         productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
         productPriceTextView.setText("Subtotal: $" + subTotal);
 
-        if(Quiz_Activity.quizDone == true){
+        if (Quiz_Activity.quizDone == true) {
 
-            double a;
-            a = (subTotal-((Quiz_Activity.scoreCart/100)*subTotal));
-            System.out.println(a +" "+subTotal+" "+Quiz_Activity.scoreCart);
+            if (Quiz_Activity.scoreCart == 1) {
+                discountSubtotal = (subTotal - (0.01 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 2) {
+                discountSubtotal = (subTotal - (0.02 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 3) {
+                discountSubtotal = (subTotal - (0.03 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 4) {
+                discountSubtotal = (subTotal - (0.04 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 5) {
+                discountSubtotal = (subTotal - (0.05 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 6) {
+                discountSubtotal = (subTotal - (0.06 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 7) {
+                discountSubtotal = (subTotal - (0.07 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 8) {
+                discountSubtotal = (subTotal - (0.08 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 9) {
+                discountSubtotal = (subTotal - (0.09 * subTotal));
+            } else if (Quiz_Activity.scoreCart == 10) {
+                discountSubtotal = (subTotal - (0.1 * subTotal));
+            }
 
-            TextView textView = (TextView) findViewById(R.id.TextViewSubtotal);
-            textView.setText("Subtotal: $ DISCOUNT" + a);
+            System.out.println(discountSubtotal + " " + subTotal + " " + Quiz_Activity.scoreCart);
+            productPriceTextView.setText("Subtotal: $ " + discountSubtotal);
         }
     }
 

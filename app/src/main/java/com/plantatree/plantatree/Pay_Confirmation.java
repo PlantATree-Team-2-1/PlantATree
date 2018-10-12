@@ -9,7 +9,6 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Pay_Confirmation extends AppCompatActivity {
 
-
     EditText FIRST_NAME, lastName, emailName;
     TextView f_NAME, lastNameView, emailNameView, subTotalView;
 
@@ -25,7 +24,7 @@ public class Pay_Confirmation extends AppCompatActivity {
 
         String name = FIRST_NAME.getText().toString();
         f_NAME.setText(name);
-        
+
 
         //PLACE value into displayFirstName textview
 
