@@ -16,6 +16,7 @@ import com.stream53.plantatree.plantatree.R;
 public class Pay_Shipping extends AppCompatActivity {
 
     EditText firstName, lastName, emailName;
+    String fName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +42,12 @@ public class Pay_Shipping extends AppCompatActivity {
             }
         });
 
-        /*
+
         //first name
         firstName =(EditText)findViewById(R.id.firstName);
-        String fName = firstName.getText().toString();
+        fName = firstName.getText().toString();
 
+        /*
         //last name
         lastName =(EditText)findViewById(R.id.lastName);
         String lName = lastName.getText().toString();
