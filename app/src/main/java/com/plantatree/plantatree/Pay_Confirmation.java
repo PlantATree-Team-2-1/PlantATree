@@ -9,21 +9,35 @@ import com.stream53.plantatree.plantatree.R;
 
 public class Pay_Confirmation extends AppCompatActivity {
 
-    EditText firstName, lastName, emailName;
-    TextView firstNameView, lastNameView, emailNameView, subTotalView;
+    EditText FIRST_NAME, lastName, emailName;
+    TextView f_NAME, lastNameView, emailNameView, subTotalView;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
-        //GET variable firstName value
-        firstName =(EditText)findViewById(R.id.firstName);
-        String fName = firstName.getText().toString();
+
+
+
+        FIRST_NAME = (EditText) findViewById(R.id.firstName);
+        f_NAME = (TextView) findViewById(R.id.displayFirstName);
+
+        String name = FIRST_NAME.getText().toString();
+        f_NAME.setText(name);
+
+
+
+
+
+
+
+
 
         //PLACE value into displayFirstName textview
-        firstNameView = (TextView) findViewById(R.id.displayFirstName);
-        firstNameView.setText(fName);
+
+
         /*
         //GET
         lastName =(EditText)findViewById(R.id.lastName);

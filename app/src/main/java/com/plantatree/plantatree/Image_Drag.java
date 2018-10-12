@@ -40,7 +40,7 @@ public class Image_Drag extends AppCompatActivity {
         image_view_drag = (ImageView) findViewById(R.id.image_view_drag);
 
         /*Specifies how a view is positioned within a RelativeLayout,
-        *with the x and y positionined at 500 each*/
+        *with the x and y positioned at 500 each*/
         RelativeLayout.LayoutParams layoutPosition = new RelativeLayout.LayoutParams(500, 500);
         layoutPosition.leftMargin = 50;
         layoutPosition.topMargin = 50;

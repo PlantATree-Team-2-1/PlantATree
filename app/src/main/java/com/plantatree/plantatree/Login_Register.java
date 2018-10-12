@@ -15,6 +15,7 @@ public class Login_Register extends AppCompatActivity {
     DBHelper_Login DATABASE;
     EditText EMAIL, PASSWORD, CONFIRM_PASS;
     Button REGISTER, LOGIN_REG;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

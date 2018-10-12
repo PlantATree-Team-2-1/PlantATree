@@ -36,8 +36,6 @@ public class Pay_Payment extends AppCompatActivity {
                 BackToShipping();
             }
         });
-
-
     }
 
     public void PlaceOrder() {

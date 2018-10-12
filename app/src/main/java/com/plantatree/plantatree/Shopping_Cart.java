@@ -43,25 +43,21 @@ public class Shopping_Cart extends AppCompatActivity {
 
             Intent startTopic1 = new Intent(this, Catalogue_Activity.class);
             startActivity(startTopic1);
-
         }
         if (id == R.id.menu_Cart) {
 
             Intent startTopic1 = new Intent(this, Shopping_Cart.class);
             startActivity(startTopic1);
-
         }
         if (id == R.id.menu_Quiz) {
 
             Intent startTopic1 = new Intent(this, Quiz_Start.class);
             startActivity(startTopic1);
-
         }
         if (id == R.id.menu_Compare) {
 
             Intent startTopic1 = new Intent(this, Image_Drag.class);
             startActivity(startTopic1);
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -106,7 +102,6 @@ public class Shopping_Cart extends AppCompatActivity {
                 checkout();
             }
         });
-
     }
 
     @Override
@@ -132,8 +127,8 @@ public class Shopping_Cart extends AppCompatActivity {
         if(Quiz_Activity.quizDone == true){
 
             double a;
-
-            a = subTotal-((Quiz_Activity.scoreCart/100)*subTotal);
+            a = (subTotal-((Quiz_Activity.scoreCart/100)*subTotal));
+            System.out.println(a +" "+subTotal+" "+Quiz_Activity.scoreCart);
 
             TextView textView = (TextView) findViewById(R.id.TextViewSubtotal);
             textView.setText("Subtotal: $ DISCOUNT" + a);
