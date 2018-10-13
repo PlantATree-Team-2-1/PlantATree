@@ -11,7 +11,8 @@
     <ImageView
         android:layout_width="176dp"
         android:layout_height="73dp"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/text_view_highscore"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/tree_quiz_title" />
 
     <TextView
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="196dp"
         android:text="Highscore: 0"
         android:textSize="20sp" />
 
@@ -30,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="206dp"
+        android:layout_marginBottom="221dp"
         android:background="@android:color/holo_green_light"
         android:text="Start Quiz" />
 
@@ -39,8 +40,9 @@
         android:layout_height="49dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150dp"
-        android:text="Earn up to 10% of a discount by \tcompleting the Quiz" />
+        android:layout_marginBottom="138dp"
+        android:text="Earn up to 10% of a discount
+     by completing the Quiz" />
 
 
 
