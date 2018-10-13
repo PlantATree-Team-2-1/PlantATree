@@ -130,6 +130,7 @@ public class Catalogue_Helper {
     }
 
     public static List<Catalogue_Product> getCartList() {
+
         List<Catalogue_Product> cartList = new Vector<Catalogue_Product>(cartMap.keySet().size());
         for(Catalogue_Product p : cartMap.keySet()) {
             cartList.add(p);

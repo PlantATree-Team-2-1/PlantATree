@@ -5,7 +5,6 @@ import java.util.List;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -124,35 +122,43 @@ public class Shopping_Cart extends AppCompatActivity {
             subTotal += p.price * quantity;
         }
 
+        //Rounds the subtotal to 2dp
+        DecimalFormat df = new DecimalFormat("#####0.00");
         productPriceTextView = (TextView) findViewById(R.id.TextViewSubtotal);
-        productPriceTextView.setText("Subtotal: $" + subTotal);
+        productPriceTextView.setText("Subtotal: $ " + df.format(subTotal));
 
         if (Quiz_Activity.quizDone == true) {
 
+            /*Confused as to why this doesn't work as, beside the fact it calls
+            * another variable from another class, its exactly the same*/
+
+            //subTotal = (subTotal - (Quiz_Activity.scoreCart * subTotal));
+
             if (Quiz_Activity.scoreCart == 1) {
-                discountSubtotal = (subTotal - (0.01 * subTotal));
+                subTotal = (subTotal - (0.01 * subTotal));
             } else if (Quiz_Activity.scoreCart == 2) {
-                discountSubtotal = (subTotal - (0.02 * subTotal));
+                subTotal = (subTotal - (0.02 * subTotal));
             } else if (Quiz_Activity.scoreCart == 3) {
-                discountSubtotal = (subTotal - (0.03 * subTotal));
+                subTotal = (subTotal - (0.03 * subTotal));
             } else if (Quiz_Activity.scoreCart == 4) {
-                discountSubtotal = (subTotal - (0.04 * subTotal));
+                subTotal = (subTotal - (0.04 * subTotal));
             } else if (Quiz_Activity.scoreCart == 5) {
-                discountSubtotal = (subTotal - (0.05 * subTotal));
+                subTotal = (subTotal - (0.05 * subTotal));
             } else if (Quiz_Activity.scoreCart == 6) {
-                discountSubtotal = (subTotal - (0.06 * subTotal));
+                subTotal = (subTotal - (0.06 * subTotal));
             } else if (Quiz_Activity.scoreCart == 7) {
-                discountSubtotal = (subTotal - (0.07 * subTotal));
+                subTotal = (subTotal - (0.07 * subTotal));
             } else if (Quiz_Activity.scoreCart == 8) {
-                discountSubtotal = (subTotal - (0.08 * subTotal));
+                subTotal = (subTotal - (0.08 * subTotal));
             } else if (Quiz_Activity.scoreCart == 9) {
-                discountSubtotal = (subTotal - (0.09 * subTotal));
+                subTotal = (subTotal - (0.09 * subTotal));
             } else if (Quiz_Activity.scoreCart == 10) {
-                discountSubtotal = (subTotal - (0.1 * subTotal));
+                subTotal = (subTotal - (0.1 * subTotal));
             }
 
+            //Prints the values within the logcat, used for testing
             System.out.println(discountSubtotal + " " + subTotal + " " + Quiz_Activity.scoreCart);
-            productPriceTextView.setText("Subtotal: $ " + discountSubtotal);
+            productPriceTextView.setText("Subtotal: $ " + df.format(subTotal));
         }
     }
 
