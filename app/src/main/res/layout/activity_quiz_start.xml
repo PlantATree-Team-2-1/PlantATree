@@ -41,8 +41,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="138dp"
-        android:text="Earn up to 10% of a discount
-     by completing the Quiz" />
+        android:text="Earn up to 10% of a discount by completing the Quiz" />
 
 
 
