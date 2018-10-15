@@ -17,14 +17,11 @@ public class Pay_Confirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
-
-
         FIRST_NAME = (EditText) findViewById(R.id.firstName);
         f_NAME = (TextView) findViewById(R.id.displayFirstName);
 
         String name = FIRST_NAME.getText().toString();
         f_NAME.setText(name);
-
 
         //PLACE value into displayFirstName textview
 

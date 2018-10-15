@@ -79,8 +79,8 @@ public class DBHelper_Quiz extends SQLiteOpenHelper {
                 "3/4", "1/2", "1/3", 2);
         addQuestion(q8);
 
-        Quiz_Returns q9 = new Quiz_Returns("The oldest living organism in North America happens to be a rugged tree. This tree is the?",
-                "Bristlecone Pine", "Douglas Fir", "Giant Redwood", 1);
+        Quiz_Returns q9 = new Quiz_Returns("The oldest living organism in New Zealand happens to be a rugged tree. This tree is the?",
+                "Cabbage Tree", "Kauri Tree", "Oak Tree", 1);
         addQuestion(q9);
 
         Quiz_Returns q10 = new Quiz_Returns("What is the science of dating through tree-ring growth called?",

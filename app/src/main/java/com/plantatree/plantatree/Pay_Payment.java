@@ -19,14 +19,14 @@ public class Pay_Payment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        final Button buttonPlaceOrder = (Button) findViewById(R.id.placeOrder);
+        /*final Button buttonPlaceOrder = (Button) findViewById(R.id.placeOrder);
         buttonPlaceOrder.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 PlaceOrder();
             }
-        });
+        });*/
 
         final Button buttonBackToShipping = (Button) findViewById(R.id.backtoShippingDetails);
         buttonBackToShipping.setOnClickListener(new View.OnClickListener() {

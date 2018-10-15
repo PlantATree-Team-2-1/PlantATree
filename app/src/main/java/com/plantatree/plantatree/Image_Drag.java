@@ -72,6 +72,7 @@ public class Image_Drag extends AppCompatActivity {
                         break;
 
                     case MotionEvent.ACTION_POINTER_DOWN:
+
                         oldDist = AREA(event);
                         if (oldDist > 10f) {
                             mode = ZOOM;
@@ -135,14 +136,12 @@ public class Image_Drag extends AppCompatActivity {
 
                                 view.setLayoutParams(PARAMETERS);
 
-
                             }
                         }
                         break;
                 }
 
                 return true;
-
             }
         });
     }
@@ -161,6 +160,7 @@ public class Image_Drag extends AppCompatActivity {
 
     private float AREA(MotionEvent event) {
 
+        //
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
 
@@ -169,6 +169,7 @@ public class Image_Drag extends AppCompatActivity {
 
     private float MOVE(MotionEvent event) {
 
+
         double delta_x = (event.getX(0) - event.getX(1));
         double delta_y = (event.getY(0) - event.getY(1));
         double radians = Math.atan2(delta_y, delta_x);
@@ -176,6 +177,7 @@ public class Image_Drag extends AppCompatActivity {
         return (float) Math.toDegrees(radians);
     }
 
+    //Inflate menu button on the desired activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
